@@ -1,1 +1,1 @@
-# Vincul-n
+# Vinculin
