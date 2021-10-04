@@ -5,3 +5,5 @@ mysql/ib_buffer_pool
 mysql/ib_logfile0
 mysql/ibdata1
 mysql/multi-master.info
+mysql/ddl_recovery.log
+mysql/ibtmp1
