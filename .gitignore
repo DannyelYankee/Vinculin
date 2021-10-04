@@ -1,0 +1,7 @@
+
+*.00000001
+mysql/aria_log_control
+mysql/ib_buffer_pool
+mysql/ib_logfile0
+mysql/ibdata1
+mysql/multi-master.info
