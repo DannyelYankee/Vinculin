@@ -30,8 +30,12 @@
           <h3>Subtítulo de la noticia 1</h3>
         </hgroup>
       </header>
+      <figure>
+        <img src="imagenes/sol_mexico.jpeg" />
+        <figcaption>El mejor cantante del <strong>mundo</strong></figcaption>
 
-      <p>Noticia 1</p>
+      </figure>
+      <p><mark>Noticia 1</mark></p>
       <p>Seguimos hablando de noticia 1</p>
       <p>Terminamos de hablar de la de noticia 1</p>
 
@@ -47,15 +51,16 @@
 
       </header>
       <p>Noticia 2</p>
-      <p>Seguimos hablando de noticia 2</p>
+      <p>Vean <cite>Regreso al futuro</cite></p>
       <p>Terminamos de hablar de la de noticia 2</p>
+      <time datetime="2021-10-04" pubdate> Noticia publicada el día 04/10/2021</time>
     </article>
 
     <article>
       <header>
         <hgroup>
           <h2>Título de la noticia 3</h3>
-          <h3>Subtítulo de la noticia 3</h3>
+            <h3>Subtítulo de la noticia 3</h3>
         </hgroup>
 
       </header>
@@ -67,7 +72,7 @@
   </section>
 
   <footer>
-    Derechos reservados Tlfn: 123456789
+    <small> Derechos reservados <address>Tlfn 123456789</address> </small>
   </footer>
 
 
