@@ -1,82 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
-<meta charset="iso-8559-1" />
-<meta name="description" content="Simulación de Linkedin" />
-<title> Vinculín </title>
-<link rel="stylesheet" href="mihoja.css">
+
+<head>
+    <html lang="es">
+    <meta charset="iso-8559-1" />
+    <meta name="description" content="Trabajo de Seguridad 2021" />
+    <title> VinculIn: Iniciar sesión o registro </title>
+    <link rel="stylesheet" href="mihoja.css">
+
+</head>
 
 <body>
-    <header id="cabeceraWeb">
-        <h1>Vinculín</h1>
+    <header>
+
+        <section class="textos-header">
+            <h1>
+                Te damos la bienvenida a tu comunidad profesional
+            </h1>
+
+        </section>
+
     </header>
-    <nav id="navegacionPrincipal">
-
-        <ul>
-            <li>Quiénes somos</li>
-            <li style="background-color: green;">Nuestros productos</li>
-            <li>Contáctanos</li>
-            <li>Precios</li>
-        </ul>
-    </nav>
-
-    <aside id="barraLateral">
-        <blockquote>Primer elemento</blockquote>
-        <blockquote>Segundo elemento</blockquote>
-        <blockquote>Tercero elemento</blockquote>
-    </aside>
-
-    <section id="contenidoPrincipal">
-        <article>
-            <header>
-                <hgroup>
-                    <h2> Titulo de la noticia 1 </h2>
-                    <h3>Subtítulo de la noticia 1</h3>
-                </hgroup>
-            </header>
-            <figure>
-                <img src="imagenes/sol_mexico.jpeg" />
-                <figcaption>El mejor cantante del <strong>mundo</strong></figcaption>
-
-            </figure>
-            <p><mark>Noticia 1</mark></p>
-            <p>Seguimos hablando de noticia 1</p>
-            <p>Terminamos de hablar de la de noticia 1</p>
-
-            <footer>
-                <p> comentarios de usuarios </p>
-            </footer>
-
-        </article>
-
-        <article>
-            <header>
-                <h2>Título de la noticia 2</h2>
-
-            </header>
-            <p>Noticia 2</p>
-            <p>Vean <cite>Regreso al futuro</cite></p>
-            <p>Terminamos de hablar de la de noticia 2</p>
-            <time datetime="2021-10-04" pubdate> Noticia publicada el día 04/10/2021</time>
-        </article>
-
-        <article>
-            <header>
-                <hgroup>
-                    <h2>Título de la noticia 3</h3>
-                        <h3>Subtítulo de la noticia 3</h3>
-                </hgroup>
-
-            </header>
-            <p>Noticia 3</p>
-            <p>Seguimos hablando de noticia 3</p>
-            <p>Terminamos de hablar de la de noticia 3</p>
-        </article>
-
-    </section>
-
-    <footer id="piePrincipal">
-        <small> Derechos reservados <address>Tlfn 123456789</address> </small>
-    </footer>
 
 
     <?php
@@ -109,5 +52,14 @@
 
     ?>
 </body>
+<footer>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Acerca de</a>
+        <a href="#">Servicios</a>
+        <a href="#">Contacto</a>
+    </nav>
+</footer>
+
 
 </html>
