@@ -11,13 +11,13 @@
 
     <title>Vinculin - inicio de sesión o registro</title>
 
-    <link rel="stylesheet" href="../assets/css/maicons.css">
+    <link rel="stylesheet" href="./assets/css/maicons.css">
 
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+    <link rel="stylesheet" href="./assets/vendor/animate/animate.css">
 
-    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="./assets/css/theme.css">
 
 </head>
 
