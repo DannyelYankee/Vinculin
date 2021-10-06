@@ -53,7 +53,10 @@
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="#">Free Analytics</a>
+                            <a class="btn btn-primary ml-lg-2" href="#">Sign in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary ml-lg-2" href="#">Sign up</a>
                         </li>
                     </ul>
                 </div>
@@ -65,9 +68,7 @@
             <div class="page-banner home-banner">
                 <div class="row align-items-center flex-wrap-reverse h-100">
                     <div class="col-md-6 py-5 wow fadeInLeft">
-                        <h1 class="mb-4">Let's Check and Optimize your website!</h1>
-                        <p class="text-lg text-grey mb-5">Ignite the most powerfull growth engine you have ever built for your company</p>
-                        <a href="#" class="btn btn-primary btn-split">Watch Video <div class="fab"><span class="mai-play"></span></div></a>
+                        <h1 class="mb-4">¡Te damos la bienvenida a tu comunidad profesional!</h1>
                     </div>
                     <div class="col-md-6 py-5 wow zoomIn">
                         <div class="img-fluid text-center">
@@ -80,49 +81,6 @@
         </div>
     </header>
 
-    <div class="page-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card-service wow fadeInUp">
-                        <div class="header">
-                            <img src="./assets/img/services/service-1.svg" alt="">
-                        </div>
-                        <div class="body">
-                            <h5 class="text-secondary">SEO Consultancy</h5>
-                            <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-                            <a href="service.html" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card-service wow fadeInUp">
-                        <div class="header">
-                            <img src="./assets/img/services/service-2.svg" alt="">
-                        </div>
-                        <div class="body">
-                            <h5 class="text-secondary">Content Marketing</h5>
-                            <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-                            <a href="service.html" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="card-service wow fadeInUp">
-                        <div class="header">
-                            <img src="./assets/img/services/service-3.svg" alt="">
-                        </div>
-                        <div class="body">
-                            <h5 class="text-secondary">Keyword Research</h5>
-                            <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-                            <a href="service.html" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- .container -->
-    </div>
     <!-- .page-section -->
 
     <div class="page-section" id="about">
@@ -130,11 +88,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 py-3 wow fadeInUp">
                     <span class="subhead">About us</span>
-                    <h2 class="title-section">The number #1 SEO Service Company</h2>
+                    <h2 class="title-section">Sign in to find your ideal job</h2>
                     <div class="divider"></div>
 
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                    <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+                    <p>Find the more appropiate job or practice according to yo</p>
+                    <p>Publish a job advertisement so that millions of people can check it</p>
                     <a href="about.html" class="btn btn-primary mt-3">Read More</a>
                 </div>
                 <div class="col-lg-6 py-3 wow fadeInRight">
