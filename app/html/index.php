@@ -71,7 +71,7 @@
                     </div>
                     <div class="col-md-6 py-5 wow zoomIn">
                         <div class="img-fluid text-center">
-                            <img src="../assets/img/banner_image_1.svg" alt="">
+                            <img src="./assets/img/banner_image_1.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 <div class="col-lg-4">
                     <div class="card-service wow fadeInUp">
                         <div class="header">
-                            <img src="../assets/img/services/service-1.svg" alt="">
+                            <img src="./assets/img/services/service-1.svg" alt="">
                         </div>
                         <div class="body">
                             <h5 class="text-secondary">SEO Consultancy</h5>
@@ -98,7 +98,7 @@
                 <div class="col-lg-4">
                     <div class="card-service wow fadeInUp">
                         <div class="header">
-                            <img src="../assets/img/services/service-2.svg" alt="">
+                            <img src="./assets/img/services/service-2.svg" alt="">
                         </div>
                         <div class="body">
                             <h5 class="text-secondary">Content Marketing</h5>
@@ -110,7 +110,7 @@
                 <div class="col-lg-4">
                     <div class="card-service wow fadeInUp">
                         <div class="header">
-                            <img src="../assets/img/services/service-3.svg" alt="">
+                            <img src="./assets/img/services/service-3.svg" alt="">
                         </div>
                         <div class="body">
                             <h5 class="text-secondary">Keyword Research</h5>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="col-lg-6 py-3 wow fadeInRight">
                     <div class="img-fluid py-3 text-center">
-                        <img src="../assets/img/about_frame.png" alt="">
+                        <img src="./assets/img/about_frame.png" alt="">
                     </div>
                 </div>
             </div>
@@ -237,7 +237,7 @@
     <!-- .page-section -->
 
     <div class="page-section banner-seo-check">
-        <div class="wrap bg-image" style="background-image: url(../assets/img/bg_pattern.svg);">
+        <div class="wrap bg-image" style="background-image: url(./assets/img/bg_pattern.svg);">
             <div class="container text-center">
                 <div class="row justify-content-center wow fadeInUp">
                     <div class="col-lg-8">
@@ -340,7 +340,7 @@
 
     <!-- Banner info -->
     <div class="page-section banner-info">
-        <div class="wrap bg-image" style="background-image: url(../assets/img/bg_pattern.svg);">
+        <div class="wrap bg-image" style="background-image: url(./assets/img/bg_pattern.svg);">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 py-3 pr-lg-5 wow fadeInUp">
@@ -361,7 +361,7 @@
                     </div>
                     <div class="col-lg-6 py-3 wow fadeInRight">
                         <div class="img-fluid text-center">
-                            <img src="../assets/img/banner_image_2.svg" alt="">
+                            <img src="./assets/img/banner_image_2.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -385,7 +385,7 @@
                     <div class="card-blog">
                         <div class="header">
                             <div class="post-thumb">
-                                <img src="../assets/img/blog/blog-1.jpg" alt="">
+                                <img src="./assets/img/blog/blog-1.jpg" alt="">
                             </div>
                         </div>
                         <div class="body">
@@ -399,7 +399,7 @@
                     <div class="card-blog">
                         <div class="header">
                             <div class="post-thumb">
-                                <img src="../assets/img/blog/blog-2.jpg" alt="">
+                                <img src="./assets/img/blog/blog-2.jpg" alt="">
                             </div>
                         </div>
                         <div class="body">
@@ -413,7 +413,7 @@
                     <div class="card-blog">
                         <div class="header">
                             <div class="post-thumb">
-                                <img src="../assets/img/blog/blog-3.jpg" alt="">
+                                <img src="./assets/img/blog/blog-3.jpg" alt="">
                             </div>
                         </div>
                         <div class="body">
@@ -430,7 +430,7 @@
         </div>
     </div>
 
-    <footer class="page-footer bg-image" style="background-image: url(../assets/img/world_pattern.svg);">
+    <footer class="page-footer bg-image" style="background-image: url(./assets/img/world_pattern.svg);">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-3 py-3">
@@ -475,15 +475,15 @@
         </div>
     </footer>
 
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/jquery-3.5.1.min.js"></script>
 
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../assets/js/google-maps.js"></script>
+    <script src="./assets/js/google-maps.js"></script>
 
-    <script src="../assets/vendor/wow/wow.min.js"></script>
+    <script src="./assets/vendor/wow/wow.min.js"></script>
 
-    <script src="../assets/js/theme.js"></script>
+    <script src="./assets/js/theme.js"></script>
 
 
 
