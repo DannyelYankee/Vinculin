@@ -8,6 +8,7 @@ web:
      - db
    volumes:
      - ./app/html:/var/www/html/
+     - ./app/assets:/var/www/assets/
 
 db:
   image: mariadb

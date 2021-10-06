@@ -9,7 +9,7 @@
 
     <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-    <title>SeoGram - SEO Agency Template</title>
+    <title>Vinculin - inicio de sesión o registro</title>
 
     <link rel="stylesheet" href="../assets/css/maicons.css">
 
