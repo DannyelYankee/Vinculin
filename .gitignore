@@ -7,3 +7,4 @@ mysql/ibdata1
 mysql/multi-master.info
 mysql/ddl_recovery.log
 mysql/ibtmp1
+.DS_Store
