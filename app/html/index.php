@@ -38,25 +38,22 @@
                 <div class="navbar-collapse collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.php">Home</a>
+                            <a class="nav-link" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">Acerca de</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="service.html">Ofertas</a>
+                            <a class="nav-link" href="job-form.html">Publicar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="blog.html">Buscar empleo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="#">Sign in</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="#">Sign up</a>
+                            <a class="btn btn-primary ml-lg-2" href="login.html">Registrarse</a>
                         </li>
                     </ul>
                 </div>
