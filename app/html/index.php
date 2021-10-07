@@ -47,7 +47,7 @@
                             <a class="nav-link" href="job-form.html">Publicar empleo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Buscar empleo</a>
+                            <a class="nav-link" href="blog-details.html">Buscar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
