@@ -135,7 +135,11 @@
 
                     <div class="social-media-button">
                         <a href="#"><span class="mai-logo-facebook-f"></span></a>
-                        <a href="https://github.com/DannyelYankee/Vinculin" target="_blank"><span class="mai-logo-twitter"></span></a>
+                        <a href="https://github.com/DannyelYankee/Vinculin" target="_blank">
+                            <span class="mai-logo-github-makr">
+                                <img src="../GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" alt="">                            
+                            </span>
+                        </a>
 
                     </div>
                 </div>
