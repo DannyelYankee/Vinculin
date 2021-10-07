@@ -134,12 +134,8 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet, repellendus eius blanditiis in iusto eligendi iure.</p>
 
                     <div class="social-media-button">
-                        <a href="#"><span class="mai-logo-facebook-f"></span></a>
-                        <a href="https://github.com/DannyelYankee/Vinculin" target="_blank">
-                            <span class="mai-logo-github-makr">
-                                <img src="../GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" alt="">                            
-                            </span>
-                        </a>
+                        <a href="https://github.com/DannyelYankee/Vinculin" target="_blank"><span class="mai-logo-github"></span></a>
+
 
                     </div>
                 </div>
