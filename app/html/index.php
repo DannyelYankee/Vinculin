@@ -84,7 +84,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 py-3 wow fadeInUp">
-                    <span class="subhead">Acerca nuestra</span>
+                    <span class="subhead">Sobre nosotros</span>
                     <h2 class="title-section">Regístrate para encontrar el trabajo ideal para ti</h2>
                     <div class="divider"></div>
 
@@ -130,38 +130,27 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-3 py-3">
-                    <h3>SEOGram</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet, repellendus eius blanditiis in iusto eligendi iure.</p>
+                    <h3>Vinculin</h3>
+                    <br>
+                    <br>
 
                     <div class="social-media-button">
                         <a href="https://github.com/DannyelYankee/Vinculin" target="_blank"><span class="mai-logo-github"></span></a>
-
-
                     </div>
                 </div>
                 <div class="col-lg-3 py-3">
-                    <h5>Company</h5>
+                    <h5>General</h5>
                     <ul class="footer-menu">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Help & Support</a></li>
+                        <li><a href="./about.html">Acerca de</a></li>
+                        <li><a href="./jobs.html">Empleos</a></li>
+                        <li><a href="./login.html">Regístrate</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 py-3">
-                    <h5>Contact Us</h5>
-                    <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
-                    <a href="#" class="footer-link">+00 1122 3344 5566</a>
-                    <a href="#" class="footer-link">seogram@temporary.com</a>
-                </div>
-                <div class="col-lg-3 py-3">
-                    <h5>Newsletter</h5>
-                    <p>Get updates, news or events on your mail.</p>
-                    <form action="#">
-                        <input type="text" class="form-control" placeholder="Enter your email..">
-                        <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
-                    </form>
+                    <h5>Contáctanos</h5>
+                    <p>Universidad del País Vasco, Ingeniero Torres Quevedo Plaza, 1, 48013 Bilbao, Vizcaya</p>
+                    <a href="#" class="footer-link">+34 123 456 78</a>
+                    <a href="#" class="footer-link">vinculin@inventedmail.com</a>
                 </div>
             </div>
 
