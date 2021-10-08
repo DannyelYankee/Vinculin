@@ -47,7 +47,7 @@
                             <a class="nav-link" href="job-form.html">Publicar empleo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog-details.html">Buscar empleo</a>
+                            <a class="nav-link" href="jobs.html">Buscar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
@@ -113,7 +113,7 @@
         <div class="container">
             <div class="text-center wow fadeInUp">
 
-                <h1 class="title-section">Súmate a tus compañeros y amigos en LinkedIn </h1>
+                <h1 class="title-section">Súmate a tus compañeros y amigos en Vinculin </h1>
                 <div class="divider mx-auto"></div>
             </div>
 
