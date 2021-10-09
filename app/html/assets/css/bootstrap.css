@@ -744,6 +744,12 @@ pre code {
     padding-left: 15px;
 }
 
+.col-md-center {
+    float: right;
+    width: 300px;
+    padding: 10px;
+}
+
 .col {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;

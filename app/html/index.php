@@ -143,7 +143,7 @@
                     <ul class="footer-menu">
                         <li><a href="./about.html">Acerca de</a></li>
                         <li><a href="./jobs.html">Empleos</a></li>
-                        <li><a href="./login.html">Regístrate</a></li>
+                        <li><a href="./signup.html">Regístrate</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 py-3">
