@@ -29,7 +29,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
             <div class="container">
-                <a href="#" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
+                <a href="index.php" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
 
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,7 @@
                             <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="login.html">Registrarse</a>
+                            <a class="btn btn-primary ml-lg-2" href="signup.html">Registrarse</a>
                         </li>
                     </ul>
                 </div>
