@@ -149,8 +149,8 @@
                 <div class="col-lg-3 py-3">
                     <h5>Contáctanos</h5>
                     <p>Universidad del País Vasco, Ingeniero Torres Quevedo Plaza, 1, 48013 Bilbao, Vizcaya</p>
-                    <a href="#" class="footer-link">+34 123 456 78</a>
-                    <a href="#" class="footer-link">vinculin@inventedmail.com</a>
+                    <p>+34 123 456 78</p>
+                    <a href="mailto:vinculin@inventedmail.com" title="Enviar correo electronico">vinculin@inventedmail.com</a>
                 </div>
             </div>
 
