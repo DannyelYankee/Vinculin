@@ -43,7 +43,7 @@
                             <a class="nav-link" href="about.html">Acerca de</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="job-form.html">Publicar empleo</a>
+                            <a class="nav-link" href="job-form.php">Publicar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.html">Buscar empleo</a>
@@ -153,5 +153,22 @@
     <script src="./assets/js/theme.js"></script>
 
 </body>
+<?php
+    $hostname = "db";
+    $username = "admin";
+    $password = "test";
+    $db = "database";
 
+    $id = 01;
+    $titulo = 'Empleo de ejemplo';
+    $empresa = 'Vinculin S.L.' ;
+    $descripcion = 'Esto es un ejemplo de como quedaria una oferta de empleo.';
+    $localidad = 'Polo Norte';
+    $email = 'emailinventado@gmail.com';
+
+    $con = mysqli_connect($hostname,$username,$password,$db);
+    mysqli_select_db($con,$db);
+    mysqli_query($con,"insert into Empleo (id,Titulo,Empresa,Descripcion,Localidad,Email) values ('$id','$titulo','$empresa','$descripcion','$localidad','$email');");
+
+?>
 </html>

@@ -44,7 +44,7 @@
                             <a class="nav-link" href="about.html">Acerca de</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="job-form.html">Publicar empleo</a>
+                            <a class="nav-link" href="job-form.php">Publicar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.html">Buscar empleo</a>
@@ -185,7 +185,7 @@
 
 
 
-    $query = mysqli_query($conn, "SELECT * FROM usuarios")
+    $query = mysqli_query($conn, "SELECT * FROM Usuarios")
       or die (mysqli_error($conn));
 
     while ($row = mysqli_fetch_array($query)) {
