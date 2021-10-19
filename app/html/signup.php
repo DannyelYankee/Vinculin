@@ -53,14 +53,7 @@
                             <label class="text-black" for="lname">Email</label>
                             <input type="email" id="lname" class="form-control">
                         </div>
-                        <div class="col-md-6">
-                            <label class="text-black" for="lname">DNI</label>
-                            <input type="text" id="lname" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="text-black" for="lname">Fecha de nacimiento</label>
-                            <input type="date" id="lname" class="form-control">
-                        </div>
+
                         <div class="col-md-6">
                             <label class="text-black" for="email">Contraseña</label>
                             <input type="password" id="text" class="form-control">
@@ -68,6 +61,15 @@
                         <div class="col-md-6">
                             <label class="text-black" for="email">Repite la contraseña</label>
                             <input type="password" id="text" class="form-control">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="text-black" for="lname">DNI</label>
+                            <input type="text" id="lname" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-black" for="lname">Fecha de nacimiento</label>
+                            <input type="date" id="lname" class="form-control">
                         </div>
                     
                         <div class="col-md-12">
