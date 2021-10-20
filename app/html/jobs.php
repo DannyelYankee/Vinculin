@@ -46,7 +46,7 @@
                             <a class="nav-link" href="job-form.php">Publicar empleo</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="jobs.html">Buscar empleo</a>
+                            <a class="nav-link" href="jobs.php">Buscar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
@@ -59,58 +59,68 @@
 
             </div>
         </nav>
-
-        <div class="container">
-            <div class="page-banner">
-                <div class="row justify-content-center align-items-center h-100">
-                    <div class="col-md-6">
-                        <nav aria-label="Breadcrumb">
-                            <ul class="breadcrumb justify-content-center py-0 bg-transparent">
-                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active">Blog</li>
-                            </ul>
-                        </nav>
-                        <h1 class="text-center">Blog</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
     </header>
 
     <div class="page-section">
         <div class="container">
+            <h2 class="mb-4 font-weight-medium text-secondary">Buscador de empleos</h2>
             <div class="row">
                 <div class="col-sm-10">
                     <form action="#" class="form-search-blog">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <select id="categories" class="custom-select bg-light">
-                  <option>All Categories</option>
-                  <option value="travel">Travel</option>
-                  <option value="lifestyle">LifeStyle</option>
-                  <option value="healthy">Healthy</option>
-                  <option value="food">Food</option>
-                </select>
+                                    <option>Todos los empleos</option>
+                                    <option value="travel">Bizkaia</option>
+                                    <option value="lifestyle">Gipuzkoa</option>
+                                    <option value="healthy">Araba</option>
+                                    <option value="food">Fuera del Pais Vasco</option>
+                                </select>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter keyword..">
+                            <input type="text" class="form-control" placeholder="Introduce una palabra clave...">
                         </div>
                     </form>
                 </div>
                 <div class="col-sm-2 text-sm-right">
-                    <button class="btn btn-secondary">Filter <span class="mai-filter"></span></button>
+                    <button class="btn btn-secondary">Filtrar <span class="mai-filter"></span></button>
                 </div>
             </div>
+
+            <?
+                $hostname = "db";
+                $username = "admin";
+                $password = "test";
+                $db = "database";
+                $con = mysqli_connect($hostname,$username,$password,$db);
+                if ($con->connect_error){
+                    echo "Database connectin failed.";
+                    die("Database connection failed: " . $con->connect_error);
+                }
+                mysqli_select_db($con,$db);
+
+                $result=mysqli_query($con,"SELECT * FROM Empleo");
+            ?>
+            <table class ="center">
+            <tr>
+                <th>Titulo</th>
+                <th>Empresa</th>
+            </tr>
+
+            <?
+                while ($row=mysqli_fetch_array($result))
+                {
+                    echo '<tr><td>'.$row["titulo"].'</td>';
+                    echo '<td>'.$row["empresa"].'</td></tr>';
+                }
+                mysqli_free_result($result)
+            ?>
+            </table>
 
             <div class="row my-5">
                 <div class="col-lg-4 py-3">
                     <div class="card-blog">
-                        <div class="header">
-                            <div class="post-thumb">
-                                <img src="./assets/img/blog/blog-1.jpg" alt="">
-                            </div>
-                        </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="jobs.html">Source of Content Inspiration</a></h5>
+                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
                             <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
                         </div>
                     </div>
@@ -118,13 +128,8 @@
 
                 <div class="col-lg-4 py-3">
                     <div class="card-blog">
-                        <div class="header">
-                            <div class="post-thumb">
-                                <img src="./assets/img/blog/blog-2.jpg" alt="">
-                            </div>
-                        </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="jobs.html">Source of Content Inspiration</a></h5>
+                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
                             <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
                         </div>
                     </div>
@@ -138,7 +143,7 @@
                             </div>
                         </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="jobs.html">Source of Content Inspiration</a></h5>
+                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
                             <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
                         </div>
                     </div>
@@ -152,7 +157,7 @@
                             </div>
                         </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="jobs.html">Source of Content Inspiration</a></h5>
+                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
                             <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
                         </div>
                     </div>
@@ -166,7 +171,7 @@
                             </div>
                         </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="jobs.html">Source of Content Inspiration</a></h5>
+                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
                             <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
                         </div>
                     </div>
@@ -180,7 +185,7 @@
                             </div>
                         </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="jobs.html">Source of Content Inspiration</a></h5>
+                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
                             <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
                         </div>
                     </div>
@@ -194,7 +199,7 @@
                             </div>
                         </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="jobs.html">Source of Content Inspiration</a></h5>
+                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
                             <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
                         </div>
                     </div>
@@ -208,7 +213,7 @@
                             </div>
                         </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="jobs.html">Source of Content Inspiration</a></h5>
+                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
                             <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
                         </div>
                     </div>
@@ -222,7 +227,7 @@
                             </div>
                         </div>
                         <div class="body">
-                            <h5 class="post-title"><a href="jobs.html">Source of Content Inspiration</a></h5>
+                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
                             <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
                         </div>
                     </div>
@@ -265,7 +270,7 @@
                     <h5>General</h5>
                     <ul class="footer-menu">
                         <li><a href="./about.html">Acerca de</a></li>
-                        <li><a href="./jobs.html">Empleos</a></li>
+                        <li><a href="./jobs.php">Empleos</a></li>
                         <li><a href="./signup.php">Regístrate</a></li>
                     </ul>
                 </div>

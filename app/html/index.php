@@ -47,7 +47,7 @@
                             <a class="nav-link" href="job-form.php">Publicar empleo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="jobs.html">Buscar empleo</a>
+                            <a class="nav-link" href="jobs.php">Buscar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
@@ -142,7 +142,7 @@
                     <h5>General</h5>
                     <ul class="footer-menu">
                         <li><a href="./about.html">Acerca de</a></li>
-                        <li><a href="./jobs.html">Empleos</a></li>
+                        <li><a href="./jobs.php">Empleos</a></li>
                         <li><a href="./signup.php">Regístrate</a></li>
                     </ul>
                 </div>

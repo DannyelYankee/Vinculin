@@ -106,7 +106,7 @@
                     <h5>General</h5>
                     <ul class="footer-menu">
                         <li><a href="./about.html">Acerca de</a></li>
-                        <li><a href="./jobs.html">Empleos</a></li>
+                        <li><a href="./jobs.php">Empleos</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 py-3">
