@@ -46,7 +46,7 @@
                             <a class="nav-link" href="job-form.php">Publicar empleo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="jobs.html">Buscar empleo</a>
+                            <a class="nav-link" href="jobs.php">Buscar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
@@ -64,31 +64,31 @@
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <form action="#" class="contact-form py-5 px-lg-5">
+                <form action="#" method="POST" class="contact-form py-5 px-lg-5">
                     <h2 class="mb-4 font-weight-medium text-secondary">Publica tu empleo</h2>
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="text-black" for="fname">Titulo</label>
-                            <input type="text" id="fname" class="form-control">
+                            <input type="text" id="fname" class="form-control" name="titulo">
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="lname">Empresa</label>
-                            <input type="text" id="lname" class="form-control">
+                            <input type="text" id="lname" class="form-control" name="empresa">
                         </div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black" for="email">Localidad</label>
-                            <input type="text" id="text" class="form-control">
+                            <input type="text" id="text" class="form-control" name="localidad">
                         </div>
                     </div>
 
                     <div class="row form-group">
 
                         <div class="col-md-12">
-                            <label class="text-black" for="subject">Telefono</label>
-                            <input type="text" id="text" class="form-control">
+                            <label class="text-black" for="subject">Email</label>
+                            <input type="email" id="text" class="form-control" name="email">
                         </div>
                     </div>
 
@@ -101,7 +101,7 @@
 
                     <div class="row form-group mt-4">
                         <div class="col-md-12">
-                            <input type="submit" value="Publicar" class="btn btn-primary">
+                            <input type="submit" value="Publicar" class="btn btn-primary" name="b1">
                         </div>
                     </div>
                 </form>
@@ -125,7 +125,7 @@
                     <h5>General</h5>
                     <ul class="footer-menu">
                         <li><a href="./about.html">Acerca de</a></li>
-                        <li><a href="./jobs.html">Empleos</a></li>
+                        <li><a href="./jobs.php">Empleos</a></li>
                         <li><a href="./signup.php">Regístrate</a></li>
                     </ul>
                 </div>
@@ -159,16 +159,23 @@
     $password = "test";
     $db = "database";
 
-    $id = 01;
-    $titulo = 'Empleo de ejemplo';
-    $empresa = 'Vinculin S.L.' ;
-    $descripcion = 'Esto es un ejemplo de como quedaria una oferta de empleo.';
-    $localidad = 'Polo Norte';
-    $email = 'emailinventado@gmail.com';
+    $titulo = $_POST["titulo"];
+    $empresa = $_POST["empresa"];
+    $descripcion = $_POST["descripcion"];
+    $localidad = $_POST["localidad"];
+    $email = $_POST["email"];
 
     $con = mysqli_connect($hostname,$username,$password,$db);
+    if ($con->connect_error) {
+        echo "Database connectin failed.";
+        die("Database connection failed: " . $con->connect_error);
+      }
+
     mysqli_select_db($con,$db);
-    mysqli_query($con,"insert into Empleo (id,Titulo,Empresa,Descripcion,Localidad,Email) values ('$id','$titulo','$empresa','$descripcion','$localidad','$email');");
+    $sql = "insert into Empleo (Titulo,Empresa,Descripcion,Localidad,Email) values ('$titulo','$empresa','$descripcion','$localidad','$email');";
+    mysqli_query($con,$sql);
+
+    mysqli_close($con)
 
 ?>
 </html>
