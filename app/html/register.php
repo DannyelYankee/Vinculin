@@ -22,6 +22,7 @@ if ($con->connect_error) {
 mysqli_select_db($con,$db);
 
 $verificacion=mysqli_query($con,"SELECT * FROM Usuario where Email='$Email'");
+echo mysqli_num_rows($verificacion);
 if(mysqli_num_rows($verificacion)>0)
 {
     echo "<script> alert('Ya existe un usuario con ese usuario'); </script>"; 

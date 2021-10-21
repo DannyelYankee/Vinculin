@@ -1,7 +1,9 @@
 <?php
 ob_start();
+session_start();
 ?>
 <?php
+
 $hostname = "db";
 $username = "admin";
 $password = "test";
@@ -16,17 +18,22 @@ mysqli_select_db($con, $db);
 
 
 $Email = $_POST["email"];
-$Contraseña = $_POST["contraseña"];
+$Contraseña = $_POST["contra"];
+echo $Email;
 
-$sql = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$Email' and Contraseña='md5($Contraseña)'");
+//AND Contraseña='md5($Contraseña)'
+$sql = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$Email' AND Contraseña=md5('$Contraseña')");
 $row = mysqli_fetch_array($sql);
+
+
 if (is_array($row)) {
+    $_SESSION["logged"] = true;
     $_SESSION["Email"] = $row['Email'];
-    $_SESSION["Nombre_Apellidos"] = $row['NombreApellidos'];
+    $_SESSION["NombreApellidos"] = $row['NombreApellidos'];
     header("Location: ./index.html");
 } else {
-    echo "<script> alert('Email o contraseña incorrectos.'); </script>";    
-    
+    echo "<script> alert('Email o contraseña incorrectos.'); </script>";
+
     exit();
 }
 //header ("Location: login.html");
