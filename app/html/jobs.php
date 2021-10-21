@@ -43,7 +43,7 @@
                             <a class="nav-link" href="about.html">Acerca de</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="job-form.php">Publicar empleo</a>
+                            <a class="nav-link" href="job-form.html">Publicar empleo</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="jobs.php">Buscar empleo</a>
@@ -85,154 +85,38 @@
                     <button class="btn btn-secondary">Filtrar <span class="mai-filter"></span></button>
                 </div>
             </div>
-
             <?
                 $hostname = "db";
                 $username = "admin";
                 $password = "test";
                 $db = "database";
-                $con = mysqli_connect($hostname,$username,$password,$db);
+                $con = mysqli_connect($hostname,$username,$password);
                 if ($con->connect_error){
                     echo "Database connectin failed.";
                     die("Database connection failed: " . $con->connect_error);
                 }
                 mysqli_select_db($con,$db);
+                $result = mysqli_query($con,"SELECT * FROM Empleo");
 
-                $result=mysqli_query($con,"SELECT * FROM Empleo");
             ?>
-            <table class ="center">
-            <tr>
-                <th>Titulo</th>
-                <th>Empresa</th>
-            </tr>
 
-            <?
-                while ($row=mysqli_fetch_array($result))
-                {
-                    echo '<tr><td>'.$row["titulo"].'</td>';
-                    echo '<td>'.$row["empresa"].'</td></tr>';
-                }
-                mysqli_free_result($result)
-            ?>
             </table>
 
             <div class="row my-5">
-                <div class="col-lg-4 py-3">
-                    <div class="card-blog">
-                        <div class="body">
-                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
-                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 py-3">
-                    <div class="card-blog">
-                        <div class="body">
-                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
-                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 py-3">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-thumb">
-                                <img src="./assets/img/blog/blog-3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
-                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 py-3">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-thumb">
-                                <img src="./assets/img/blog/blog-4.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
-                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 py-3">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-thumb">
-                                <img src="./assets/img/blog/blog-5.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
-                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 py-3">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-thumb">
-                                <img src="./assets/img/blog/blog-6.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
-                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 py-3">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-thumb">
-                                <img src="./assets/img/blog/blog-1.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
-                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 py-3">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-thumb">
-                                <img src="./assets/img/blog/blog-2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
-                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 py-3">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-thumb">
-                                <img src="./assets/img/blog/blog-3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title"><a href="jobs.php">Source of Content Inspiration</a></h5>
-                            <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-                        </div>
-                    </div>
-                </div>
-
+                    <?
+                        while ($row=mysqli_fetch_array($result))
+                        {
+                            echo '<div class="col-lg-4 py-3">
+                                    <div class="card-blog">
+                                        <div class="body">
+                                            <h5 class="post-title"><a href="job-view.html">'.$row["Titulo"].'</a></h5>
+                                            <div class="post-date">Publicado por <a href="#">'.$row["Empresa"].'</a></div>
+                                        </div>
+                                    </div>
+                                </div>';
+                        }
+                        mysqli_free_result($result);
+                    ?>
             </div>
 
             <nav aria-label="Page Navigation">
@@ -240,8 +124,8 @@
                     <li class="page-item disabled">
                         <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item" aria-current="page">
                         <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>

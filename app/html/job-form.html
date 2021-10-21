@@ -43,7 +43,7 @@
                             <a class="nav-link" href="about.html">Acerca de</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="job-form.php">Publicar empleo</a>
+                            <a class="nav-link" href="job-form.html">Publicar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.php">Buscar empleo</a>
@@ -64,7 +64,7 @@
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <form action="#" method="POST" class="contact-form py-5 px-lg-5">
+                <form action="publicar.php" method="POST" class="contact-form py-5 px-lg-5">
                     <h2 class="mb-4 font-weight-medium text-secondary">Publica tu empleo</h2>
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
@@ -153,29 +153,4 @@
     <script src="./assets/js/theme.js"></script>
 
 </body>
-<?php
-    $hostname = "db";
-    $username = "admin";
-    $password = "test";
-    $db = "database";
-
-    $titulo = $_POST["titulo"];
-    $empresa = $_POST["empresa"];
-    $descripcion = $_POST["descripcion"];
-    $localidad = $_POST["localidad"];
-    $email = $_POST["email"];
-
-    $con = mysqli_connect($hostname,$username,$password,$db);
-    if ($con->connect_error) {
-        echo "Database connectin failed.";
-        die("Database connection failed: " . $con->connect_error);
-      }
-
-    mysqli_select_db($con,$db);
-    $sql = "insert into Empleo (Titulo,Empresa,Descripcion,Localidad,Email) values ('$titulo','$empresa','$descripcion','$localidad','$email');";
-    mysqli_query($con,$sql);
-
-    mysqli_close($con)
-
-?>
 </html>
