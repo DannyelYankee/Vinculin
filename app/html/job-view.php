@@ -96,12 +96,12 @@
                         <div class="post-meta">
                             <div class="post-date">
                                 <span class="icon">
-                  <span class="mai-time-outline"></span>
+                  <span class="mai-home"></span>
                                 </span> <a href="#"><?echo $row["Empresa"];?></a>
                             </div>
                             <div class="post-comment-count ml-2">
                                 <span class="icon">
-                  <span class="mai-chatbubbles-outline"></span>
+                  <span class="mai-location"></span>
                                 </span> <a href="#"><?echo $row["Localidad"];?></a>
                             </div>
                         </div>
