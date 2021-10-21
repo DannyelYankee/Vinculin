@@ -19,7 +19,7 @@ mysqli_select_db($con, $db);
 
 $Email = $_POST["email"];
 $Contraseña = $_POST["contra"];
-echo $Email;
+
 
 //AND Contraseña='md5($Contraseña)'
 $sql = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$Email' AND Contraseña=md5('$Contraseña')");
