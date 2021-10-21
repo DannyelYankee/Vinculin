@@ -31,58 +31,74 @@
                 <a href="index.html" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
 
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>        
+                    <span class="navbar-toggler-icon"></span>
         </nav>
 
 
     </header>
 
-
+    <script>
+        function passwordValidation() {
+            var password = document.getElementById("contra1");
+            //Contraseña vacia
+            if (password.length < 8) {
+                document.getElementById("message").innerHTML = "La contraseña debe tener una longitud de entre 8 y 15 caracteres"
+                return false;
+            }
+            if (password.length > 15) {
+                document.getElementById("message").innerHTML = "La contraseña debe tener una longitud de entre 8 y 15 caracteres"
+                return false;
+            }
+        }
+    </script>
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <form action="#" class="contact-form py-5 px-lg-5">
+                <form action="register.php" method="post" class="contact-form py-5 px-lg-5">
+
                     <h2 class="mb-4 font-weight-medium text-secondary">Regístrate</h2>
 
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <label class="text-black" for="fname">Nombre y apellidos</label>
-                            <input type="text" id="fname" class="form-control">
+                            <label class="text-black" for="NombreApellidos">Nombre y apellidos</label>
+                            <input type="text" name="NombreApellidos" class="form-control" required="required">
                         </div>
                         <div class="col-md-12">
-                            <label class="text-black" for="lname">Email</label>
-                            <input type="email" id="lname" class="form-control">
+                            <label class="text-black" for="Email">Email</label>
+                            <input type="email" name="Email" class="form-control" required="required">
                         </div>
 
                         <div class="col-md-6">
-                            <label class="text-black" for="email">Contraseña</label>
-                            <input type="password" id="text" class="form-control">
+                            <label class="text-black" for="Contraseña">Contraseña</label>
+                            <input type="password" id="contra1" name="Contraseña" class="form-control" required="required">
+                            <span id="message"></span>
                         </div>
                         <div class="col-md-6">
-                            <label class="text-black" for="email">Repite la contraseña</label>
-                            <input type="password" id="text" class="form-control">
+                            <label class="text-black" for="RepiteContraseña">Repite la contraseña</label>
+                            <input type="password" id="contra2" name="RepiteContraseña" class="form-control" required="required">
                         </div>
 
                         <div class="col-md-6">
-                            <label class="text-black" for="lname">DNI</label>
-                            <input type="text" id="lname" class="form-control">
+                            <label class="text-black" for="DNI">DNI</label>
+                            <input type="text" name="DNI" class="form-control" required="required">
                         </div>
                         <div class="col-md-6">
-                            <label class="text-black" for="lname">Fecha de nacimiento</label>
-                            <input type="date" id="lname" class="form-control">
+                            <label class="text-black" for="fNacimiento">Fecha de nacimiento</label>
+                            <input type="date" name="fNacimiento" class="form-control" required="required">
                         </div>
-                    
+
                         <div class="col-md-12">
-                            <label class="text-black" for="subject">Telefono</label>
-                            <input type="text" id="text" class="form-control">
+                            <label class="text-black" for="Telefono">Telefono</label>
+                            <input type="text" name="Telefono" class="form-control" required="required">
                         </div>
                     </div>
-
+                    <p>Creando una cuenta acepta nuestros términos y condiciones <a href="#" style="color:dodgerblue">Términos y condiciones</a>.</p>
                     <div class="row form-group mt-4">
                         <div class="col-md-12">
-                            <input type="submit" value="Unirse" class="btn btn-primary">
+                            <input type="submit" value="Unirse" class="btn btn-primary" onclick="passwordValidation()">
                         </div>
                     </div>
+                    <div class="text-left">¿Ya tienes una cuenta? <a href="login.html">Sign in</a></div>
                 </form>
             </div>
 
