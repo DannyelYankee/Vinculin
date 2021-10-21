@@ -34,6 +34,7 @@
     
     $id = $_GET['id'];
     $datos = mysqli_query($con,"SELECT * FROM `Empleo` WHERE `id` = $id");
+    
     $row=mysqli_fetch_array($datos);
 ?>
 
@@ -110,11 +111,11 @@
                     </div>
 
                     <div class="comment-form-wrap pt-5">
-                        <h2 class="mb-5">Leave a comment</h2>
+                        <h2 class="mb-5">Formulario de solicitid</h2>
                         <form action="#" class="">
                             <div class="form-row form-group">
                                 <div class="col-md-6">
-                                    <label for="name">Name *</label>
+                                    <label for="name">Nombre *</label>
                                     <input type="text" class="form-control" id="name">
                                 </div>
                                 <div class="col-md-6">
@@ -123,112 +124,21 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="website">Website</label>
-                                <input type="url" class="form-control" id="website">
+                                <label for="website">Teléfono (opcional)</label>
+                                <input type="phone" class="form-control" id="website">
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea name="msg" id="message" cols="30" rows="8" class="form-control"></textarea>
+                                <label for="message">Mensaje</label>
+                                <textarea name="msg" id="message" cols="30" rows="8" class="form-control" placeholder="Me interesa este empleo porque..."></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Post Comment" class="btn btn-primary">
+                                <input type="submit" value="Enviar solicitud" class="btn btn-primary">
                             </div>
 
                         </form>
                     </div>
 
-                </div>
-                <div class="col-lg-4">
-                    <div class="widget">
-                        <!-- Widget search -->
-                        <div class="widget-box">
-                            <form action="#" class="search-widget">
-                                <input type="text" class="form-control" placeholder="Enter keyword..">
-                                <button type="submit" class="btn btn-primary btn-block">Search</button>
-                            </form>
-                        </div>
-
-                        <!-- Widget Categories -->
-                        <div class="widget-box">
-                            <h4 class="widget-title">Category</h4>
-                            <div class="divider"></div>
-
-                            <ul class="categories">
-                                <li><a href="#">LifeStyle</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Healthy</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Entertainment</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Widget recent post -->
-                        <div class="widget-box">
-                            <h4 class="widget-title">Recent Post</h4>
-                            <div class="divider"></div>
-
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="./assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content">
-                                    <h6 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h6>
-                                    <div class="meta">
-                                        <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                                        <a href="#"><span class="mai-person"></span> Admin</a>
-                                        <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="./assets/img/blog/blog-2.jpg" alt="">
-                                </a>
-                                <div class="content">
-                                    <h6 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h6>
-                                    <div class="meta">
-                                        <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                                        <a href="#"><span class="mai-person"></span> Admin</a>
-                                        <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="./assets/img/blog/blog-3.jpg" alt="">
-                                </a>
-                                <div class="content">
-                                    <h6 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h6>
-                                    <div class="meta">
-                                        <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                                        <a href="#"><span class="mai-person"></span> Admin</a>
-                                        <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Widget Tag Cloud -->
-                        <div class="widget-box">
-                            <h4 class="widget-title">Tag Cloud</h4>
-                            <div class="divider"></div>
-
-                            <div class="tag-clouds">
-                                <a href="#" class="tag-cloud-link">Projects</a>
-                                <a href="#" class="tag-cloud-link">Design</a>
-                                <a href="#" class="tag-cloud-link">Travel</a>
-                                <a href="#" class="tag-cloud-link">Brand</a>
-                                <a href="#" class="tag-cloud-link">Trending</a>
-                                <a href="#" class="tag-cloud-link">Knowledge</a>
-                                <a href="#" class="tag-cloud-link">Food</a>
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
             </div>
 

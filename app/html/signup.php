@@ -88,7 +88,7 @@
                         </div>
 
                         <div class="col-md-12">
-                            <label class="text-black" for="Telefono">Telefono</label>
+                            <label class="text-black" for="Telefono">Télefono</label>
                             <input type="text" name="Telefono" class="form-control" required="required">
                         </div>
                     </div>

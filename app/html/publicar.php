@@ -134,7 +134,6 @@
     $titulo = $_POST["titulo"];
     $empresa = $_POST["empresa"];
     $descripcion = $_POST["descripcion"];
-    echo $descripcion;
     $localidad = $_POST["localidad"];
     $email = $_POST["email"];
 
