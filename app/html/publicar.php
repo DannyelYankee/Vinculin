@@ -130,9 +130,11 @@
     $password = "test";
     $db = "database";
 
+    $propietario = "angela";
     $titulo = $_POST["titulo"];
     $empresa = $_POST["empresa"];
     $descripcion = $_POST["descripcion"];
+    echo $descripcion;
     $localidad = $_POST["localidad"];
     $email = $_POST["email"];
 
@@ -143,7 +145,7 @@
       }
 
     mysqli_select_db($con,$db);
-    $sql = "insert into Empleo (Titulo,Empresa,Descripcion,Localidad,Email) values ('$titulo','$empresa','$descripcion','$localidad','$email');";
+    $sql = "insert into Empleo (propietario,Titulo,Empresa,Descripcion,Localidad,Email) values ('$propietario','$titulo','$empresa','$descripcion','$localidad','$email');";
     mysqli_query($con,$sql);
 
     mysqli_close($con)
