@@ -96,7 +96,7 @@
                     die("Database connection failed: " . $con->connect_error);
                 }
                 mysqli_select_db($con,$db);
-                $result = mysqli_query($con,"SELECT * FROM Empleo");
+                $datos = mysqli_query($con,"SELECT * FROM Empleo");
 
             ?>
 
@@ -104,37 +104,21 @@
 
             <div class="row my-5">
                     <?
-                        while ($row=mysqli_fetch_array($result))
+                        while ($row=mysqli_fetch_array($datos))
                         {
+                            $id = $row["id"];
                             echo '<div class="col-lg-4 py-3">
                                     <div class="card-blog">
                                         <div class="body">
-                                            <h5 class="post-title"><a href="job-view.html">'.$row["Titulo"].'</a></h5>
+                                            <h5 class="post-title"><a href="job-view.php?id='.$id.'">'.$row["Titulo"].'</a></h5>
                                             <div class="post-date">Publicado por <a href="#">'.$row["Empresa"].'</a></div>
                                         </div>
                                     </div>
                                 </div>';
                         }
-                        mysqli_free_result($result);
+                        mysqli_free_result($datos);
                     ?>
             </div>
-
-            <nav aria-label="Page Navigation">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item" aria-current="page">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-
         </div>
     </div>
 
