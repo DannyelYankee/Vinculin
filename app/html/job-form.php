@@ -43,7 +43,7 @@
                             <a class="nav-link" href="about.html">Acerca de</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="job-form.html">Publicar empleo</a>
+                            <a class="nav-link" href="job-form.php">Publicar empleo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.php">Buscar empleo</a>
@@ -154,3 +154,13 @@
 
 </body>
 </html>
+
+<?php
+
+if (!isset($_SESSION["logged"]) || $_SESSION["logged"]!=true){
+    echo "<script> alert('Tienes que estar identificado para publicar una oferta.'); </script>";
+    header("Location: http://localhost:81/login.html");
+}
+
+
+?>
