@@ -1,11 +1,8 @@
 <?php
 session_start();
 
-foreach($_SESSION as $key => $value) {
-  unset($_SESSION[$key]);
-}
+unset($_SESSION['usuario']);
 
-session_destroy();
 
 header("Location: login.html ");
 ?>

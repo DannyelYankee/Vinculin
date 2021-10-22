@@ -1,10 +1,10 @@
 <?php
 session_start();
-$a = 1;
-if ($a == 2) {
-    $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
+
+if (isset($_SESSION['usuario'])){
+    $out = '<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Perfil</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><a class="dropdown-item" href="datos-usuario.php" type="button">Mis datos</a><a class="dropdown-item" href="logout.php" type="button">Cerrar sesión</a></div></div>';
 } else {
-    $out = '<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Perfil</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><a class="dropdown-item" href="datos-usuario.php" type="button">Mis datos</a><a class="dropdown-item" href="login.html" type="button">Cerrar sesión</a></div></div>';
+    $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
 }
 ?>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ if ($a == 2) {
                             <a class="nav-link" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">Acerca de</a>
+                            <a class="nav-link" href="about.php">Acerca de</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="job-form.php">Publicar empleo</a>
@@ -94,7 +94,7 @@ if ($a == 2) {
 
                     <p>Encuentra el trabajo o las prácticas más apropiadas para ti.</p>
                     <p>Publica una oferta de trabajo para que millones de personas puedan verla.</p>
-                    <a href="about.html" class="btn btn-primary mt-3">Saber más</a>
+                    <a href="about.php" class="btn btn-primary mt-3">Saber más</a>
                 </div>
                 <div class="col-lg-6 py-3 wow fadeInRight">
                     <div class="img-fluid py-3 text-center">
@@ -145,7 +145,7 @@ if ($a == 2) {
                 <div class="col-lg-3 py-3">
                     <h5>General</h5>
                     <ul class="footer-menu">
-                        <li><a href="./about.html">Acerca de</a></li>
+                        <li><a href="./about.php">Acerca de</a></li>
                         <li><a href="./jobs.php">Empleos</a></li>
                         <li><a href="./signup.php">Regístrate</a></li>
                     </ul>

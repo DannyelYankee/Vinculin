@@ -58,7 +58,7 @@
                             <a class="nav-link" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">Acerca de</a>
+                            <a class="nav-link" href="about.php">Acerca de</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="job-form.php">Publicar empleo</a>
@@ -160,7 +160,7 @@
                 <div class="col-lg-3 py-3">
                     <h5>General</h5>
                     <ul class="footer-menu">
-                        <li><a href="./about.html">Acerca de</a></li>
+                        <li><a href="./about.php">Acerca de</a></li>
                         <li><a href="./jobs.php">Empleos</a></li>
                         <li><a href="./signup.php">Regístrate</a></li>
                     </ul>

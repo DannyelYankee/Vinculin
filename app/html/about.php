@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usuario'])) {
+    $out = '<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Perfil</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><a class="dropdown-item" href="datos-usuario.php" type="button">Mis datos</a><a class="dropdown-item" href="logout.php" type="button">Cerrar sesión</a></div></div>';
+} else {
+    $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,8 +40,8 @@
                 <a href="index.php" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
 
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <div class="navbar-collapse collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
@@ -40,7 +49,7 @@
                             <a class="nav-link" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="about.html">Acerca de</a>
+                            <a class="nav-link" href="about.php">Acerca de</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="job-form.php">Publicar empleo</a>
@@ -48,12 +57,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.php">Buscar empleo</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a>
-                        </li>
+                        <?php echo $out ?>
                     </ul>
                 </div>
 
@@ -103,7 +107,7 @@
                 <div class="col-lg-3 py-3">
                     <h5>General</h5>
                     <ul class="footer-menu">
-                        <li><a href="./about.html">Acerca de</a></li>
+                        <li><a href="./about.php">Acerca de</a></li>
                         <li><a href="./jobs.php">Empleos</a></li>
                         <li><a href="./login.html">Regístrate</a></li>
                     </ul>

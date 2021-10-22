@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usuario'])){
+    $out = '<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Perfil</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><a class="dropdown-item" href="datos-usuario.php" type="button">Mis datos</a><a class="dropdown-item" href="logout.php" type="button">Cerrar sesión</a></div></div>';
+} else {
+    $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +49,7 @@
                             <a class="nav-link" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">Acerca de</a>
+                            <a class="nav-link" href="about.php">Acerca de</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="job-form.php">Publicar empleo</a>
@@ -48,12 +57,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="jobs.php">Buscar empleo</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a>
-                        </li>
+                        <?php echo $out ?>
                     </ul>
                 </div>
 
@@ -137,7 +141,7 @@
                 <div class="col-lg-3 py-3">
                     <h5>General</h5>
                     <ul class="footer-menu">
-                        <li><a href="./about.html">Acerca de</a></li>
+                        <li><a href="./about.php">Acerca de</a></li>
                         <li><a href="./jobs.php">Empleos</a></li>
                         <li><a href="./signup.php">Regístrate</a></li>
                     </ul>

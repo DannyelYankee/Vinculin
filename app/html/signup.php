@@ -121,7 +121,7 @@
                 <div class="col-lg-3 py-3">
                     <h5>General</h5>
                     <ul class="footer-menu">
-                        <li><a href="./about.html">Acerca de</a></li>
+                        <li><a href="./about.php">Acerca de</a></li>
                         <li><a href="./jobs.php">Empleos</a></li>
                     </ul>
                 </div>
