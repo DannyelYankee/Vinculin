@@ -1,3 +1,13 @@
+<?php
+session_start();
+$a=1;
+if($a==2) {
+    $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
+} else {
+    $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="about.html">MiPerfil</a></li>';
+
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,16 +39,16 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
             <div class="container">
-                <a href="index.html" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
+                <a href="index.php" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
 
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <div class="navbar-collapse collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Inicio</a>
+                            <a class="nav-link" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">Acerca de</a>
@@ -49,12 +59,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.php">Buscar empleo</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a>
-                        </li>
+                        <?php echo $out ?>
+                        <!-- hacer dropdown de mi perfil, cerrar sesión-->
+
+                        </select>    
                     </ul>
                 </div>
 

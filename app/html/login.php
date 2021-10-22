@@ -1,8 +1,7 @@
 <?php
-ob_start();
+
 session_start();
-?>
-<?php
+
 
 $hostname = "db";
 $username = "admin";
@@ -30,7 +29,7 @@ if (is_array($row)) {
     $_SESSION["logged"] = true;
     $_SESSION["Email"] = $row['Email'];
     $_SESSION["NombreApellidos"] = $row['NombreApellidos'];
-    header("Location: ./index.html");
+    header("Location: ./index.php");
 } else {
     echo "<script> alert('Email o contraseña incorrectos.'); </script>";
 
@@ -41,7 +40,4 @@ if (is_array($row)) {
 
 mysqli_close($con)
 
-?>
-<?php
-ob_end_flush();
 ?>

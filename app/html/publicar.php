@@ -28,7 +28,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="300">
             <div class="container">
-                <a href="index.html" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
+                <a href="index.php" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
 
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                 <div class="navbar-collapse collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
+                            <a class="nav-link" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">Acerca de</a>
@@ -72,7 +72,7 @@
 
 
             <div class="col-12 mt-4 text-center wow fadeInUp">
-                <a href="index.html" class="btn btn-primary">Volver a la pagina de inicio</a>
+                <a href="index.php" class="btn btn-primary">Volver a la pagina de inicio</a>
             </div>
         </div>
     </div>
