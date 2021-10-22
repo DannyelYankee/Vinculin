@@ -85,9 +85,6 @@ if (isset($_SESSION['usuario'])){
                         </div>
                     </form>
                 </div>
-                <div class="col-sm-2 text-sm-right">
-                    <button class="btn btn-secondary">Filtrar <span class="mai-filter"></span></button>
-                </div>
             </div>
             <?
                 $hostname = "db";
@@ -103,8 +100,6 @@ if (isset($_SESSION['usuario'])){
                 $datos = mysqli_query($con,"SELECT * FROM Empleo");
 
             ?>
-
-            </table>
 
             <div class="row my-5">
                     <?

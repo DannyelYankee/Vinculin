@@ -90,7 +90,7 @@ if (!isset($_SESSION['usuario'])) {
 
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <label class="text-black" for="email">Localidad</label>
+                            <label class="text-black">Localidad</label>
                             <input type="text" id="text" class="form-control" name="localidad" required="required">
                         </div>
                     </div>
@@ -99,7 +99,7 @@ if (!isset($_SESSION['usuario'])) {
 
                         <div class="col-md-12">
                             <label class="text-black" for="subject">Email</label>
-                            <input type="email" id="text" class="form-control" name="email" required="required">
+                            <input class="form-control" type="email" placeholder="<?php echo $_SESSION['usuario']['Email'] ?>" readonly>
                         </div>
                     </div>
 
@@ -116,6 +116,12 @@ if (!isset($_SESSION['usuario'])) {
                         </div>
                     </div>
                 </form>
+            </div>
+            
+            <div class="col-lg-6 py-3">
+                    <div class="img-fluid py-3 text-center">
+                        <img src="./assets/img/working.jpg" alt="Imagen de un ordenador portatil en una mesa." width="500" height="500">
+                    </div>
             </div>
         </div>
     </div>

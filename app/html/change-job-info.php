@@ -40,7 +40,7 @@ session_start();
                 <div class="navbar-collapse collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.php">Inicio</a>
+                            <a class="nav-link" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.php">Acerca de</a>
@@ -65,11 +65,13 @@ session_start();
             <nav aria-label="Breadcrumb">
                 <ul class="breadcrumb p-0 mb-0 bg-transparent">
                     <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-                    <li class="breadcrumb-item active">Mi perfil</a></li>
+                    <li class="breadcrumb-item"><a href="datos-usuario.php">Mi perfil</a></li>
                 </ul>
             </nav>
 
-            <?
+            <div class="row">
+
+                <?
                 $hostname = "db";
                 $username = "admin";
                 $password = "test";
@@ -82,71 +84,54 @@ session_start();
                 mysqli_select_db($con, $db);
                 $email = $_SESSION['usuario']['Email'];
 
-                $datos = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$_email'");
+                $id = $_GET['id'];
+                $datos = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `id` = $id");
                 $row = mysqli_fetch_array($datos);
-            ?>
-            
-            <div class="row">
-                <div class="col">
-                    <h2 class="mb-5">Datos de usuario</h2>
-                    <form action="change-user-data.php" method="POST">
-                        <div class="form-row form-group">
-                            <div class="col-md-6">
-                                <label for="name">Nombre </label>
-                                <p> <?php echo $_SESSION['usuario']['NombreApellidos'] ?> </p>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email">Email </label>
-                                <p> <?php echo $_SESSION['usuario']['Email'] ?> </p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="website">Teléfono</label>
-                            <p> <?php echo $_SESSION['usuario']['Telefono'] ?> </p>
-                        </div>
-                        <div class="form-group">
-                            <label for="website">DNI</label>
-                            <p> <?php echo $_SESSION['usuario']['DNI'] ?> </p>
-                        </div>
-                        <div class="form-group">
-                            <label for="website">Fecha de Nacimiento</label>
-                            <p> <?php echo $_SESSION['usuario']['FechaNacimiento'] ?> </p>
-                        </div>
+                ?>
 
-                        <div class="row form-group mt-4">
-                            <div class="col-md-12">
-                                <input type="submit" value="Modificar datos" class="btn btn-primary">
-                            </div>
+                <form action="#" method="POST" class="contact-form py-5 px-lg-5">
+                    <h2 class="mb-5">Modificar anuncio</h2>
+                    <div class="row form-group">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label class="text-black" for="fname">Titulo</label>
+                            <input type="text" id="fname" class="form-control" name="titulo" value=<?php echo $row["Titulo"] ?>>
                         </div>
+                        <div class="col-md-6">
+                            <label class="text-black" for="lname">Empresa</label>
+                            <input type="text" id="lname" class="form-control" name="empresa" value=<?php echo $row["Empresa"] ?>>
+                        </div>
+                    </div>
 
-                    </form>
-                </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="text-black">Localidad</label>
+                            <input type="text" id="text" class="form-control" name="localidad" value=<?php echo $row["Localidad"] ?>>
+                        </div>
+                    </div>
 
-                <div class="col">
-                    <h2 class="mb-5">Tus anuncios</h2>
-                    <?
-                        $datos2 = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `propietario` = '$email'");
-                        //$row2 = mysqli_fetch_array($datos2);
+                    <div class="row form-group">
 
-                        while ($row2=mysqli_fetch_array($datos2))
-                        {
-                            $id2 = $row2["id"];
-                            echo '<div class="col-lg-10 py-3">
-                                    <div class="card w-100">
-                                        <div class="card-body">
-                                            <h5 class="card-title">'.$row2["Titulo"].'</h5>
-                                            <p class="card-text">'.$row2["Localidad"].'</p>
-                                            <a href="change-job-info.php?id='.$id2.'" class="btn btn-primary">Modificar datos</a>
-                                        </div>
-                                    </div>
-                                </div>';
-                        }
-                        mysqli_free_result($datos2);
-                    ?>
-                </div>
+                        <div class="col-md-12">
+                            <label class="text-black" for="subject">Email</label>
+                            <input class="form-control" type="email" placeholder="<?php echo $_SESSION['usuario']['Email'] ?>" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label class="text-black" for="message">Descripción</label>
+                            <textarea id="message" cols="30" rows="5" class="form-control" value=<?php echo $row["Descripcion"] ?> name="descripcion"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row form-group mt-4">
+                        <div class="col-md-12">
+                            <input type="submit" value="Modificar" class="btn btn-primary" name="b1">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-
     </div>
     </div>
 

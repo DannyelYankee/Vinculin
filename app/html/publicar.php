@@ -134,12 +134,11 @@ session_start();
     $password = "test";
     $db = "database";
 
-    $propietario = "angela";
+    $propietario = $_SESSION['usuario']['Email'];
     $titulo = $_POST["titulo"];
     $empresa = $_POST["empresa"];
     $descripcion = $_POST["descripcion"];
     $localidad = $_POST["localidad"];
-    $email = $_POST["email"];
 
     $con = mysqli_connect($hostname,$username,$password,$db);
     if ($con->connect_error) {
@@ -148,7 +147,7 @@ session_start();
       }
 
     mysqli_select_db($con,$db);
-    $sql = "insert into Empleo (propietario,Titulo,Empresa,Descripcion,Localidad,Email) values ('$propietario','$titulo','$empresa','$descripcion','$localidad','$email');";
+    $sql = "insert into Empleo (propietario,Titulo,Empresa,Descripcion,Localidad) values ('$propietario','$titulo','$empresa','$descripcion','$localidad');";
     mysqli_query($con,$sql);
 
     mysqli_close($con)

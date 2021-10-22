@@ -65,7 +65,7 @@ session_start();
             <nav aria-label="Breadcrumb">
                 <ul class="breadcrumb p-0 mb-0 bg-transparent">
                     <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="jobs.php">Mi perfil</a></li>
+                    <li class="breadcrumb-item"><a href="datos-usuario.php">Mi perfil</a></li>
                 </ul>
             </nav>
 
