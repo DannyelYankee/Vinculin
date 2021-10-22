@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["logged"]) || $_SESSION["logged"]!=true){
+    echo "<script> alert('Tienes que estar identificado para publicar una oferta.');</script>";
+    header('Location: login.php');
+    //echo '<script> window.location.replace("http://localhost:81/login.html");</script>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -158,12 +164,3 @@ session_start();
 
 </body>
 </html>
-
-<?php
-
-if (!isset($_SESSION["logged"]) || $_SESSION["logged"]!=true){
-    echo "<script> alert('Tienes que estar identificado para publicar una oferta.');</script>";
-    echo '<script> window.location.replace("http://localhost:81/login.html");</script>';
-}
-
-?>
