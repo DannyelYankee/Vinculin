@@ -92,27 +92,34 @@ session_start();
                     <form action="update-user-data.php" method="POST">
                         <div class="form-row form-group">
                             <div class="col-md-6">
-                                <label for="name">Nombre </label>
-                                <p> <?php echo $_SESSION['usuario']['NombreApellidos'] ?> </p>
+                                <label for="name">Nombre y apellidos </label>
+                                <input type="text" id="text" class="form-control" name="nombre" placeholder=<?php echo $_SESSION['usuario']['NombreApellidos'] ?>>
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Email </label>
-                                <p> <?php echo $_SESSION['usuario']['Email'] ?> </p>
+                                <input type="text" id="text" class="form-control" name="email" placeholder=<?php echo $_SESSION['usuario']['Email'] ?>>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="website">Teléfono</label>
-                            <p> <?php echo $_SESSION['usuario']['Telefono'] ?> </p>
+                            <input type="text" id="text" class="form-control" name="telefono" placeholder=<?php echo $_SESSION['usuario']['Telefono'] ?>>
                         </div>
                         <div class="form-group">
                             <label for="website">DNI</label>
-                            <p> <?php echo $_SESSION['usuario']['DNI'] ?> </p>
+                            <input type="text" id="text" class="form-control" name="DNI" placeholder=<?php echo $_SESSION['usuario']['DNI'] ?>>
                         </div>
                         <div class="form-group">
-                            <label for="website">FechaNacimiento</label>
-                            <p> <?php echo $_SESSION['usuario']['FechaNacimiento'] ?> </p>
+                            <label for="website">Fecha de nacimiento</label>
+                            <input type="text" id="text" class="form-control" name="fNacimiento" placeholder=<?php echo $_SESSION['usuario']['FechaNacimiento'] ?>>
                         </div>
-
+                        <div class="form-group">
+                            <label for="website">Contraseña</label>
+                            <input type="text" id="text" class="form-control" name="contra1" placeholder="Ingrese la nueva contraseña.">
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Repita contraseña</label>
+                            <input type="text" id="text" class="form-control" name="contra2" placeholder="Por favor repita la contraseña.">
+                        </div>
                         <div class="row form-group mt-4">
                             <div class="col-md-12">
                                 <input type="submit" value="Guardar Cambios" class="btn btn-primary">
