@@ -21,7 +21,7 @@ $row = mysqli_fetch_array($sql);
 
 if (is_array($row)) {
     //$_SESSION['usuario']['loggedIn'] = true;
-    $_SESSION['usuario']['Email'] = $row['Email'];
+    $_SESSION['usuario']['Email'] = $row['Email'];    
     $_SESSION['usuario']['NombreApellidos'] = $row['NombreApellidos'];
     $_SESSION['usuario']['DNI']=$row['DNI'];
     $_SESSION['usuario']['FechaNacimiento']=$row['FechaNacimiento'];

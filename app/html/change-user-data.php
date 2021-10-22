@@ -89,7 +89,7 @@ session_start();
                 ?>
                 <div class="comment-form-wrap pt-5">
                     <h2 class="mb-5">Datos de usuario</h2>
-                    <form action="change-user-data.php" method="POST">
+                    <form action="update-user-data.php" method="POST">
                         <div class="form-row form-group">
                             <div class="col-md-6">
                                 <label for="name">Nombre </label>
@@ -115,7 +115,7 @@ session_start();
 
                         <div class="row form-group mt-4">
                             <div class="col-md-12">
-                                <input type="submit" value="Modificar datos" class="btn btn-primary">
+                                <input type="submit" value="Guardar Cambios" class="btn btn-primary">
                             </div>
                         </div>
 

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usuario'])){
+    $out = '<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Perfil</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><a class="dropdown-item" href="datos-usuario.php" type="button">Mis datos</a><a class="dropdown-item" href="logout.php" type="button">Cerrar sesión</a></div></div>';
+} else {
+    $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,12 +75,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="jobs.php">Buscar empleo</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a>
-                        </li>
+                        <?php echo $out ?>
                     </ul>
                 </div>
 
@@ -111,7 +115,7 @@
                     </div>
 
                     <div class="comment-form-wrap pt-5">
-                        <h2 class="mb-5">Formulario de solicitid</h2>
+                        <h2 class="mb-5">Formulario de solicitud</h2>
                         <form action="#" class="">
                             <div class="form-row form-group">
                                 <div class="col-md-6">
