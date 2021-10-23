@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['usuario'])){
+if (isset($_SESSION['usuario'])) {
     $out = '<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Perfil</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><a class="dropdown-item" href="datos-usuario.php" type="button">Mis datos</a><a class="dropdown-item" href="logout.php" type="button">Cerrar sesión</a></div></div>';
 } else {
     $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
@@ -30,21 +30,21 @@ if (isset($_SESSION['usuario'])){
 </head>
 
 <?
-    $hostname = "db";
-    $username = "admin";
-    $password = "test";
-    $db = "database";
-    $con = mysqli_connect($hostname,$username,$password);
-    if ($con->connect_error){
-        echo "Database connectin failed.";
-        die("Database connection failed: " . $con->connect_error);
-    }
-    mysqli_select_db($con,$db);
-    
-    $id = $_GET['id'];
-    $datos = mysqli_query($con,"SELECT * FROM `Empleo` WHERE `id` = $id");
-    
-    $row=mysqli_fetch_array($datos);
+$hostname = "db";
+$username = "admin";
+$password = "test";
+$db = "database";
+$con = mysqli_connect($hostname, $username, $password);
+if ($con->connect_error) {
+    echo "Database connectin failed.";
+    die("Database connection failed: " . $con->connect_error);
+}
+mysqli_select_db($con, $db);
+
+$id = $_GET['id'];
+$datos = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `id` = $id");
+
+$row = mysqli_fetch_array($datos);
 ?>
 
 <body>
@@ -58,8 +58,8 @@ if (isset($_SESSION['usuario'])){
                 <a href="index.php" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
 
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <div class="navbar-collapse collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
@@ -96,21 +96,20 @@ if (isset($_SESSION['usuario'])){
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog-single-wrap">
-                        <h1 class="post-title"><?echo $row["Titulo"];?></h1>
+                        <h1 class="post-title"><? echo $row["Titulo"]; ?></h1>
                         <div class="post-meta">
                             <div class="post-date">
                                 <span class="icon">
-                  <span class="mai-home"></span>
-                                </span> <a href="#"><?echo $row["Empresa"];?></a>
+                                    <span class="mai-home"></span>
+                                </span> <a href="#"><? echo $row["Empresa"]; ?></a>
                             </div>
                             <div class="post-comment-count ml-2">
                                 <span class="icon">
-                  <span class="mai-location"></span>
-                                </span> <a href="#"><?echo $row["Localidad"];?></a>
+                                    <span class="mai-location"></span>
+                                </span> <a href="#"><? echo $row["Localidad"]; ?></a>
                             </div>
                         </div>
                         <div class="post-content">
-
                             <?echo nl2br($row["Descripcion"]);?>
                         </div>
                     </div>
@@ -121,11 +120,11 @@ if (isset($_SESSION['usuario'])){
                             <div class="form-row form-group">
                                 <div class="col-md-6">
                                     <label for="name">Nombre *</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="text" class="form-control" id="name" required="required">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email">Email *</label>
-                                    <input type="email" class="form-control" id="email">
+                                    <input type="email" class="form-control" id="email" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -135,10 +134,10 @@ if (isset($_SESSION['usuario'])){
 
                             <div class="form-group">
                                 <label for="message">Mensaje</label>
-                                <textarea name="msg" id="message" cols="30" rows="8" class="form-control" placeholder="Me interesa este empleo porque..."></textarea>
+                                <textarea name="msg" id="message" cols="30" rows="8" class="form-control" placeholder="Me interesa este empleo porque..." required="required"></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Enviar solicitud" class="btn btn-primary">
+                                <a class="btn btn-primary" href="job-view.php?id=<?php echo $id ?>">Enviar solicitud</a>
                             </div>
 
                         </form>
