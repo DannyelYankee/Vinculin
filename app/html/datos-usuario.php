@@ -121,8 +121,14 @@ session_start();
 
                     </form>
                 </div>
-
+                
                 <div class="col">
+                    <script type="text/javascript">
+                    function check(){
+                        return confirm("¿Estas seguro que quieres borrar el empleo?");
+                    }
+
+                    </script>
                     <h2 class="mb-5">Tus anuncios</h2>
                     <?
                     $datos2 = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `propietario` = '$email'");
@@ -137,7 +143,7 @@ session_start();
                                             <h5 class="card-title">' . $row2["Titulo"] . '</h5>
                                             <p class="card-text">' . $row2["Localidad"] . '</p>
                                             <a href="change-job-info.php?id='.$id2.'" class="btn btn-primary">Modificar datos</a>
-                                            <a href="delete-job.php?id='.$id2.'" class="btn btn-secondary">Eliminar</a>
+                                            <a  href="delete-job.php?id='.$id2.'" class="btn btn-secondary" onclick="return check()">Eliminar</a>
                                         </div>
                                     </div>
                                 </div>';
