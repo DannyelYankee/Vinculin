@@ -42,12 +42,37 @@
         function passwordValidation() {
             password = document.registro.contra1.value;
             password2 = document.registro.contra2.value;
-            
+            var valido = false;
             if(password == password2){
-                document.registro.submit();
+                valido = true;
             }
             else{
                 alert("Las contraseñas no coinciden. ");
+            }
+            var dni = document.registro.dni;
+            var numero;
+            var letr;
+            var letra;
+            var expresion_regular_dni;
+
+            expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+
+            if (expresion_regular_dni.test(dni) == true) {
+                numero = dni.substr(0, dni.length - 1);
+                letr = dni.substr(dni.length - 1, 1);
+                numero = numero % 23;
+                letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+                letra = letra.substring(numero, numero + 1);
+                if (letra != letr.toUpperCase()) {
+                    alert('Dni erroneo, la letra del NIF no se corresponde');
+                } else {
+                    valido = true;
+                }
+            } else {
+                alert('Dni erroneo, formato no válido');
+            }
+            if (valido){
+                document.registro.submit();
             }
         }
     </script>
@@ -88,30 +113,30 @@
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label class="text-black" for="NombreApellidos">Nombre y apellidos</label>
-                            <input type="text" name="NombreApellidos" class="form-control">
+                            <input type="text" name="NombreApellidos" class="form-control" required="required">
                         </div>
                         <div class="col-md-12">
                             <label class="text-black" for="Email">Email</label>
-                            <input type="email" name="Email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+                            <input type="email" name="Email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="required">
                         </div>
 
                         <div class="col-md-6">
                             <label class="text-black" for="Contraseña">Contraseña</label>
-                            <input type="password" id="contra1" name="contra1" class="form-control">
+                            <input type="password" id="contra1" name="contra1" class="form-control" required="required">
                             <span id="message"></span>
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="RepiteContraseña">Repite la contraseña</label>
-                            <input type="password" id="contra2" name="contra2" class="form-control">
+                            <input type="password" id="contra2" name="contra2" class="form-control" required="required">
                         </div>
 
                         <div class="col-md-6">
                             <label class="text-black" for="DNI">DNI</label>
-                            <input type="text" id="DNI" name="DNI" class="form-control">
+                            <input type="text" id="DNI" name="dni" class="form-control" required="required">
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="fNacimiento">Fecha de nacimiento</label>
-                            <input type="date" name="fNacimiento" class="form-control">
+                            <input type="date" name="fNacimiento" class="form-control" required="required">
                         </div>
 
                         <div class="col-md-12">
