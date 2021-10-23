@@ -38,20 +38,45 @@
 
     </header>
 
-    <script>
+    <script type="text/javascript">
         function passwordValidation() {
             var password = document.getElementById("contra1");
+            var password2 = document.getElementById("contra2");
             //Contraseña vacia
-            if (password.length < 8) {
-                document.getElementById("message").innerHTML = "La contraseña debe tener una longitud de entre 8 y 15 caracteres"
-                return false;
-            }
-            if (password.length > 15) {
-                document.getElementById("message").innerHTML = "La contraseña debe tener una longitud de entre 8 y 15 caracteres"
-                return false;
+
+            
+            if (password != password2){
+                alert("Las contraseñas no coinciden.")
             }
         }
     </script>
+    <script type="text/javascript">
+        function nif(dni) {
+            var numero
+            var letr
+            var letra
+            var expresion_regular_dni
+
+            expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+
+            if (expresion_regular_dni.test(dni) == true) {
+                numero = dni.substr(0, dni.length - 1);
+                letr = dni.substr(dni.length - 1, 1);
+                numero = numero % 23;
+                letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+                letra = letra.substring(numero, numero + 1);
+                if (letra != letr.toUpperCase()) {
+                    alert('Dni erroneo, la letra del NIF no se corresponde');
+                } else {
+                    alert('Dni correcto');
+                }
+            } else {
+                alert('Dni erroneo, formato no válido');
+            }
+        }
+    </script>
+
+
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
@@ -62,41 +87,42 @@
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label class="text-black" for="NombreApellidos">Nombre y apellidos</label>
-                            <input type="text" name="NombreApellidos" class="form-control" required="required">
+                            <input type="text" name="NombreApellidos" class="form-control" >
                         </div>
                         <div class="col-md-12">
                             <label class="text-black" for="Email">Email</label>
-                            <input type="email" name="Email" class="form-control" required="required">
+                            <input type="email" name="Email" class="form-control" >
                         </div>
 
                         <div class="col-md-6">
                             <label class="text-black" for="Contraseña">Contraseña</label>
-                            <input type="password" id="contra1" name="Contraseña" class="form-control" required="required">
+                            <input type="password" id="contra1" name="Contraseña" class="form-control" >
                             <span id="message"></span>
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="RepiteContraseña">Repite la contraseña</label>
-                            <input type="password" id="contra2" name="RepiteContraseña" class="form-control" required="required">
+                            <input type="password" id="contra2" name="RepiteContraseña" class="form-control" >
                         </div>
 
                         <div class="col-md-6">
                             <label class="text-black" for="DNI">DNI</label>
-                            <input type="text" name="DNI" class="form-control" required="required">
+                            <input type="text" id="DNI" name="DNI" class="form-control" >
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="fNacimiento">Fecha de nacimiento</label>
-                            <input type="date" name="fNacimiento" class="form-control" required="required">
+                            <input type="date" name="fNacimiento" class="form-control">
                         </div>
 
                         <div class="col-md-12">
                             <label class="text-black" for="Telefono">Télefono</label>
-                            <input type="text" name="Telefono" class="form-control" required="required">
+                            <input type="text" pattern="[0-9]{9}" title="Debe ser un número de 9 dígitos" name="Telefono" class="form-control" required="required" >
                         </div>
                     </div>
                     <p>Creando una cuenta acepta nuestros términos y condiciones <a href="#" style="color:dodgerblue">Términos y condiciones</a>.</p>
                     <div class="row form-group mt-4">
                         <div class="col-md-12">
                             <input type="submit" value="Unirse" class="btn btn-primary" onclick="passwordValidation()">
+
                         </div>
                     </div>
                     <div class="text-left">¿Ya tienes una cuenta? <a href="login.html">Inicia Sesión</a></div>
