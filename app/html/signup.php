@@ -40,14 +40,14 @@
 
     <script type="text/javascript">
         function passwordValidation() {
-            var password = document.getElementById("contra1");
-            var password2 = document.getElementById("contra2");
-            //Contraseña vacia
-
+            password = document.registro.contra1.value;
+            password2 = document.registro.contra2.value;
             
-            if (password != password2){
-                alert("Las contraseñas no coinciden.")
-                
+            if(password == password2){
+                document.registro.submit();
+            }
+            else{
+                alert("Las contraseñas no coinciden. ");
             }
         }
     </script>
@@ -81,16 +81,8 @@
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <form action="register.php" method="post" class="contact-form py-5 px-lg-5">
-                    <script type="text/javascript">
-                        function passwordValidation() {
-                            var password = document.getElementById("contra1");
-                            var password2 = document.getElementById("contra2");
-                            if (password != password2) {
-                                alert("Las contraseñas no coinciden.")
-                            }
-                        }
-                    </script>
+                <form name="registro" action="register.php" method="post" class="contact-form py-5 px-lg-5">
+
                     <h2 class="mb-4 font-weight-medium text-secondary">Regístrate</h2>
 
                     <div class="row form-group">
@@ -105,12 +97,12 @@
 
                         <div class="col-md-6">
                             <label class="text-black" for="Contraseña">Contraseña</label>
-                            <input type="password" id="contra1" name="Contraseña" class="form-control">
+                            <input type="password" id="contra1" name="contra1" class="form-control">
                             <span id="message"></span>
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="RepiteContraseña">Repite la contraseña</label>
-                            <input type="password" id="contra2" name="RepiteContraseña" class="form-control">
+                            <input type="password" id="contra2" name="contra2" class="form-control">
                         </div>
 
                         <div class="col-md-6">
@@ -130,7 +122,7 @@
                     <p>Creando una cuenta acepta nuestros términos y condiciones <a href="#" style="color:dodgerblue">Términos y condiciones</a>.</p>
                     <div class="row form-group mt-4">
                         <div class="col-md-12">
-                            <input type="submit" value="Unirse" class="btn btn-primary" onclick="passwordValidation()">
+                            <input type="button" value="Unirse" class="btn btn-primary" onclick="passwordValidation()">
 
                         </div>
                     </div>
