@@ -30,8 +30,14 @@ if (mysqli_num_rows($verificacion) > 0) {
     exit();
 }
 $sql = "insert into Usuario (NombreApellidos, Email, Contraseña, DNI, FechaNacimiento, Telefono) values ('$NombreApellidos','$Email',md5('$Contraseña'),'$DNI','$fNacimiento','$Telefono');";
-header("Location: login.html");
 mysqli_query($con, $sql);
+$_SESSION['usuario']['Email'] = $Email;    
+$_SESSION['usuario']['NombreApellidos'] = $NombreApellidos;
+$_SESSION['usuario']['DNI']=$row['DNI'];
+$_SESSION['usuario']['FechaNacimiento']=$fNacimiento;
+$_SESSION['usuario']['Telefono']=$Telefono;
+$_SESSION['usuario']['Contraseña']=$Contraseña;
+header("Location: ./index.php");
 
 
 mysqli_close($con)
