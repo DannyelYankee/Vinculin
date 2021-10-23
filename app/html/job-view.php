@@ -136,8 +136,8 @@ if (isset($_SESSION['usuario'])){
                                 <label for="message">Mensaje</label>
                                 <textarea name="msg" id="message" cols="30" rows="8" class="form-control" placeholder="Me interesa este empleo porque..."></textarea>
                             </div>
-                            <div class="form-group">
-                                <input type="submit" value="Enviar solicitud" class="btn btn-primary">
+                            <div class="form-group">                                                                
+                                <a class="btn btn-primary" href="job-view.php?id=<?php echo $id?>">Enviar solicitud</a>
                             </div>
 
                         </form>
