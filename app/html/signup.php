@@ -91,7 +91,7 @@
                         </div>
                         <div class="col-md-12">
                             <label class="text-black" for="Email">Email</label>
-                            <input type="email" name="Email" class="form-control" >
+                            <input type="email"  name="Email" class="form-control" >
                         </div>
 
                         <div class="col-md-6">
