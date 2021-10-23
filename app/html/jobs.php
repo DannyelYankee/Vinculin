@@ -99,9 +99,13 @@ if (isset($_SESSION['usuario'])) {
                     }
                     mysqli_free_result($datos);
                 }else{
-                    echo "No hay ningún anuncio publicado.\n";
-                    echo "\nSe el primero en publicar.";
-                    echo '<div class="row form-group-left mt-4"><div class="col-md-12"><a class="btn btn-primary ml-lg-2" href="job-form.php" type="button">Publicar empleo</a></div></div>';
+                    echo '<div class="container">
+                            <div class="text-center wow fadeInUp">
+                            No hay ningún anuncio publicado.<br>
+                            Se el primero en publicar un empleo.
+                            <div class="divider mx-auto"></div>
+                            <a class="btn btn-primary ml-lg-2" href="job-form.php" type="button">Publicar empleo</a>
+                        </div>';
                 }
                 
                 ?>
