@@ -94,24 +94,24 @@ session_start();
                         <div class="form-row form-group">
                             <div class="col-md-6">
                                 <label for="name">Nombre y apellidos </label>
-                                <input type="text" id="text" class="form-control" name="nombre" value=<?php echo $row['NombreApellidos'] ?>>
+                                <input type="text" id="text" class="form-control" name="nombre" value="<?php echo $row['NombreApellidos']?>" >
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Email </label>
-                                <input type="text" id="text" class="form-control" name="email" value=<?php echo $row['Email'] ?>>
+                                <input type="text" id="text" class="form-control" name="email" value="<?php echo $row['Email'] ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="website">Teléfono</label>
-                            <input type="text" id="text" class="form-control" name="telefono" value=<?php echo $row['Telefono'] ?>>
+                            <input type="text" id="text" class="form-control" name="telefono" value="<?php echo $row['Telefono'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="website">DNI</label>
-                            <input type="text" id="text" class="form-control" name="DNI" value=<?php echo $row['DNI'] ?>>
+                            <input type="text" id="text" class="form-control" name="DNI" value="<?php echo $row['DNI'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="website">Fecha de nacimiento</label>
-                            <input type="date" id="text" class="form-control" name="fNacimiento" value=<?php echo $row['FechaNacimiento'] ?>>
+                            <input type="date" id="text" class="form-control" name="fNacimiento" value="<?php echo $row['FechaNacimiento'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="website">Contraseña</label>
