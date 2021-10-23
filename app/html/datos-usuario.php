@@ -128,7 +128,7 @@ session_start();
                     $datos2 = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `propietario` = '$email'");
                     
                     if ($datos2 == true) {
-                        $row2 = mysqli_fetch_array($datos2);
+                        //$row2 = mysqli_fetch_array($datos2);
 
                         while ($row2 = mysqli_fetch_array($datos2)) {
                             $id2 = $row2["id"];
@@ -137,7 +137,8 @@ session_start();
                                         <div class="card-body">
                                             <h5 class="card-title">' . $row2["Titulo"] . '</h5>
                                             <p class="card-text">' . $row2["Localidad"] . '</p>
-                                            <a href="change-job-info.php?id=' . $id2 . '" class="btn btn-primary">Modificar datos</a>
+                                            <a href="change-job-info.php?id='.$id2.'" class="btn btn-primary">Modificar datos</a>
+                                            <a href="delete-job.php?id='.$id2.'" class="btn btn-secondary">Eliminar</a>
                                         </div>
                                     </div>
                                 </div>';

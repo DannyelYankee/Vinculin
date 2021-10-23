@@ -99,7 +99,7 @@
                             <input type="submit" value="Unirse" class="btn btn-primary" onclick="passwordValidation()">
                         </div>
                     </div>
-                    <div class="text-left">¿Ya tienes una cuenta? <a href="login.html">Sign in</a></div>
+                    <div class="text-left">¿Ya tienes una cuenta? <a href="login.html">Inicia Sesión</a></div>
                 </form>
             </div>
 

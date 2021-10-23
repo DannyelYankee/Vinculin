@@ -25,7 +25,7 @@ if ($con->connect_error) {
 }
 
 mysqli_select_db($con, $db);
-$sql = "insert into Empleo (propietario,Titulo,Empresa,Descripcion,Localidad) values ('$propietario','$titulo','$empresa','$descripcion','$localidad');";
+$sql = "insert into Empleo (propietario,Titulo,Empresa,localidad,Descripcion) values ('$propietario','$titulo','$empresa','$localidad','$descripcion');";
 mysqli_query($con, $sql);
 
 mysqli_close($con)

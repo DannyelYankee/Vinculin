@@ -89,8 +89,9 @@ session_start();
                 $row = mysqli_fetch_array($datos);
                 ?>
 
-                <form action="#" method="POST" class="contact-form py-5 px-lg-5">
+                <form action="update-job-info.php" method="POST" class="contact-form py-5 px-lg-5">
                     <h2 class="mb-5">Modificar anuncio</h2>
+                    <? $_POST[$id] ?>
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="text-black" for="fname">Titulo</label>
