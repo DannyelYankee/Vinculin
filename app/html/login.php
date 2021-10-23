@@ -26,6 +26,7 @@ if (is_array($row)) {
     $_SESSION['usuario']['DNI']=$row['DNI'];
     $_SESSION['usuario']['FechaNacimiento']=$row['FechaNacimiento'];
     $_SESSION['usuario']['Telefono']=$row['Telefono'];
+    $_SESSION['usuario']['Contraseña']=$row['Contraseña'];
     header("Location: ./index.php");
 } else {
     echo "<script> alert('Email o contraseña incorrectos.'); </script>";

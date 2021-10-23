@@ -1,6 +1,36 @@
-<?php 
+<?php
 session_start();
+if (isset($_SESSION['usuario'])) {
+    $out = '<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Perfil</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><a class="dropdown-item" href="datos-usuario.php" type="button">Mis datos</a><a class="dropdown-item" href="logout.php" type="button">Cerrar sesión</a></div></div>';
+} else {
+    $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
+}
+
+
+$hostname = "db";
+$username = "admin";
+$password = "test";
+$db = "database";
+
+$propietario = $_SESSION['usuario']['Email'];
+$titulo = $_POST["titulo"];
+$empresa = $_POST["empresa"];
+$descripcion = $_POST["descripcion"];
+$localidad = $_POST["localidad"];
+
+$con = mysqli_connect($hostname, $username, $password, $db);
+if ($con->connect_error) {
+    echo "Database connectin failed.";
+    die("Database connection failed: " . $con->connect_error);
+}
+
+mysqli_select_db($con, $db);
+$sql = "insert into Empleo (propietario,Titulo,Empresa,Descripcion,Localidad) values ('$propietario','$titulo','$empresa','$descripcion','$localidad');";
+mysqli_query($con, $sql);
+
+mysqli_close($con)
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,8 +65,8 @@ session_start();
                 <a href="index.php" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
 
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <div class="navbar-collapse collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
@@ -52,19 +82,14 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="jobs.php">Buscar empleo</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a>
-                        </li>
+                        <?php echo $out ?>
                     </ul>
                 </div>
 
             </div>
         </nav>
     </header>
-    
+
     <div class="page-section">
         <div class="container">
             <div class="text-center wow fadeInUp">
@@ -80,7 +105,7 @@ session_start();
             </div>
         </div>
     </div>
-    
+
     <footer class="page-footer bg-image" style="background-image: url(./assets/img/world_pattern.svg);">
         <div class="container">
             <div class="row mb-5">
@@ -127,28 +152,3 @@ session_start();
 </body>
 
 </html>
-
-<?php
-    $hostname = "db";
-    $username = "admin";
-    $password = "test";
-    $db = "database";
-
-    $propietario = $_SESSION['usuario']['Email'];
-    $titulo = $_POST["titulo"];
-    $empresa = $_POST["empresa"];
-    $descripcion = $_POST["descripcion"];
-    $localidad = $_POST["localidad"];
-
-    $con = mysqli_connect($hostname,$username,$password,$db);
-    if ($con->connect_error) {
-        echo "Database connectin failed.";
-        die("Database connection failed: " . $con->connect_error);
-      }
-
-    mysqli_select_db($con,$db);
-    $sql = "insert into Empleo (propietario,Titulo,Empresa,Descripcion,Localidad) values ('$propietario','$titulo','$empresa','$descripcion','$localidad');";
-    mysqli_query($con,$sql);
-
-    mysqli_close($con)
-?>

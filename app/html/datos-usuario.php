@@ -70,22 +70,22 @@ session_start();
             </nav>
 
             <?
-                $hostname = "db";
-                $username = "admin";
-                $password = "test";
-                $db = "database";
-                $con = mysqli_connect($hostname, $username, $password);
-                if ($con->connect_error) {
-                    echo "Database connectin failed.";
-                    die("Database connection failed: " . $con->connect_error);
-                }
-                mysqli_select_db($con, $db);
-                $email = $_SESSION['usuario']['Email'];
+            $hostname = "db";
+            $username = "admin";
+            $password = "test";
+            $db = "database";
+            $con = mysqli_connect($hostname, $username, $password);
+            if ($con->connect_error) {
+                echo "Database connectin failed.";
+                die("Database connection failed: " . $con->connect_error);
+            }
+            mysqli_select_db($con, $db);
+            $email = $_SESSION['usuario']['Email'];
 
-                $datos = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$_email'");
-                $row = mysqli_fetch_array($datos);
+            $datos = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$email'");
+            $row = mysqli_fetch_array($datos);
             ?>
-            
+
             <div class="row">
                 <div class="col">
                     <h2 class="mb-5">Datos de usuario</h2>
@@ -93,24 +93,24 @@ session_start();
                         <div class="form-row form-group">
                             <div class="col-md-6">
                                 <label for="name">Nombre </label>
-                                <p> <?php echo $_SESSION['usuario']['NombreApellidos'] ?> </p>
+                                <p> <?php echo $row['NombreApellidos'] ?> </p>
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Email </label>
-                                <p> <?php echo $_SESSION['usuario']['Email'] ?> </p>
+                                <p> <?php echo $row['Email'] ?> </p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="website">Teléfono</label>
-                            <p> <?php echo $_SESSION['usuario']['Telefono'] ?> </p>
+                            <p> <?php echo $row['Telefono'] ?> </p>
                         </div>
                         <div class="form-group">
                             <label for="website">DNI</label>
-                            <p> <?php echo $_SESSION['usuario']['DNI'] ?> </p>
+                            <p> <?php echo $row['DNI'] ?> </p>
                         </div>
                         <div class="form-group">
                             <label for="website">Fecha de Nacimiento</label>
-                            <p> <?php echo $_SESSION['usuario']['FechaNacimiento'] ?> </p>
+                            <p> <?php echo $row['FechaNacimiento'] ?> </p>
                         </div>
 
                         <div class="row form-group mt-4">
@@ -125,23 +125,29 @@ session_start();
                 <div class="col">
                     <h2 class="mb-5">Tus anuncios</h2>
                     <?
-                        $datos2 = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `propietario` = '$email'");
-                        //$row2 = mysqli_fetch_array($datos2);
+                    $datos2 = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `propietario` = '$email'");
+                    
+                    if ($datos2 == true) {
+                        $row2 = mysqli_fetch_array($datos2);
 
-                        while ($row2=mysqli_fetch_array($datos2))
-                        {
+                        while ($row2 = mysqli_fetch_array($datos2)) {
                             $id2 = $row2["id"];
                             echo '<div class="col-lg-10 py-3">
                                     <div class="card w-100">
                                         <div class="card-body">
-                                            <h5 class="card-title">'.$row2["Titulo"].'</h5>
-                                            <p class="card-text">'.$row2["Localidad"].'</p>
-                                            <a href="change-job-info.php?id='.$id2.'" class="btn btn-primary">Modificar datos</a>
+                                            <h5 class="card-title">' . $row2["Titulo"] . '</h5>
+                                            <p class="card-text">' . $row2["Localidad"] . '</p>
+                                            <a href="change-job-info.php?id=' . $id2 . '" class="btn btn-primary">Modificar datos</a>
                                         </div>
                                     </div>
                                 </div>';
                         }
                         mysqli_free_result($datos2);
+                    }else{
+                        echo "No tienes ningún anuncio publicado.\n";
+                        echo "\nPublica tu primer empleo haciendo un click.";
+                        echo '<div class="row form-group mt-4"><div class="col-md-12"><a class="btn btn-primary ml-lg-2" href="job-form.php" type="button">Publicar empleo</a></div></div>';
+                    }
                     ?>
                 </div>
             </div>

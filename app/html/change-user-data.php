@@ -66,6 +66,7 @@ session_start();
                 <ul class="breadcrumb p-0 mb-0 bg-transparent">
                     <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
                     <li class="breadcrumb-item"><a href="datos-usuario.php">Mi perfil</a></li>
+                    
                 </ul>
             </nav>
 
@@ -84,7 +85,7 @@ session_start();
                 mysqli_select_db($con, $db);
                 $email = $_SESSION['usuario']['Email'];
 
-                $datos = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$_email'");
+                $datos = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$email'");
                 $row = mysqli_fetch_array($datos);
                 ?>
                 <div class="comment-form-wrap pt-5">
@@ -93,32 +94,32 @@ session_start();
                         <div class="form-row form-group">
                             <div class="col-md-6">
                                 <label for="name">Nombre y apellidos </label>
-                                <input type="text" id="text" class="form-control" name="nombre" placeholder=<?php echo $_SESSION['usuario']['NombreApellidos'] ?>>
+                                <input type="text" id="text" class="form-control" name="nombre" value=<?php echo $row['NombreApellidos'] ?>>
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Email </label>
-                                <input type="text" id="text" class="form-control" name="email" placeholder=<?php echo $_SESSION['usuario']['Email'] ?>>
+                                <input type="text" id="text" class="form-control" name="email" value=<?php echo $row['Email'] ?>>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="website">Teléfono</label>
-                            <input type="text" id="text" class="form-control" name="telefono" placeholder=<?php echo $_SESSION['usuario']['Telefono'] ?>>
+                            <input type="text" id="text" class="form-control" name="telefono" value=<?php echo $row['Telefono'] ?>>
                         </div>
                         <div class="form-group">
                             <label for="website">DNI</label>
-                            <input type="text" id="text" class="form-control" name="DNI" placeholder=<?php echo $_SESSION['usuario']['DNI'] ?>>
+                            <input type="text" id="text" class="form-control" name="DNI" value=<?php echo $row['DNI'] ?>>
                         </div>
                         <div class="form-group">
                             <label for="website">Fecha de nacimiento</label>
-                            <input type="text" id="text" class="form-control" name="fNacimiento" placeholder=<?php echo $_SESSION['usuario']['FechaNacimiento'] ?>>
+                            <input type="date" id="text" class="form-control" name="fNacimiento" value=<?php echo $row['FechaNacimiento'] ?>>
                         </div>
                         <div class="form-group">
                             <label for="website">Contraseña</label>
-                            <input type="text" id="text" class="form-control" name="contra1" placeholder="Ingrese la nueva contraseña.">
+                            <input type="text" id="text" class="form-control" name="contra1" value="Ingrese la nueva contraseña.">
                         </div>
                         <div class="form-group">
                             <label for="website">Repita contraseña</label>
-                            <input type="text" id="text" class="form-control" name="contra2" placeholder="Por favor repita la contraseña.">
+                            <input type="text" id="text" class="form-control" name="contra2" value="Por favor repita la contraseña.">
                         </div>
                         <div class="row form-group mt-4">
                             <div class="col-md-12">
