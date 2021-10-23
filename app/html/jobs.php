@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['usuario'])){
+if (isset($_SESSION['usuario'])) {
     $out = '<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Perfil</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><a class="dropdown-item" href="datos-usuario.php" type="button">Mis datos</a><a class="dropdown-item" href="logout.php" type="button">Cerrar sesión</a></div></div>';
 } else {
     $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
@@ -40,8 +40,8 @@ if (isset($_SESSION['usuario'])){
                 <a href="index.php" class="navbar-brand">Vincul<span class="text-primary">in.</span></a>
 
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <div class="navbar-collapse collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
@@ -69,36 +69,42 @@ if (isset($_SESSION['usuario'])){
         <div class="container">
             <h2 class="mb-4 font-weight-medium text-secondary">Buscador de empleos</h2>
             <?
-                $hostname = "db";
-                $username = "admin";
-                $password = "test";
-                $db = "database";
-                $con = mysqli_connect($hostname,$username,$password);
-                if ($con->connect_error){
-                    echo "Database connectin failed.";
-                    die("Database connection failed: " . $con->connect_error);
-                }
-                mysqli_select_db($con,$db);
-                $datos = mysqli_query($con,"SELECT * FROM Empleo");
+            $hostname = "db";
+            $username = "admin";
+            $password = "test";
+            $db = "database";
+            $con = mysqli_connect($hostname, $username, $password);
+            if ($con->connect_error) {
+                echo "Database connectin failed.";
+                die("Database connection failed: " . $con->connect_error);
+            }
+            mysqli_select_db($con, $db);
+            $datos = mysqli_query($con, "SELECT * FROM Empleo");
 
             ?>
 
             <div class="row my-5">
-                    <?
-                        while ($row=mysqli_fetch_array($datos))
-                        {
-                            $id = $row["id"];
-                            echo '<div class="col-lg-4 py-3">
+                <?
+                if (mysqli_num_rows($datos)>0) {
+                    while ($row = mysqli_fetch_array($datos)) {
+                        $id = $row["id"];
+                        echo '<div class="col-lg-4 py-3">
                                     <div class="card-blog">
                                         <div class="body">
-                                            <h5 class="post-title"><a href="job-view.php?id='.$id.'">'.$row["Titulo"].'</a></h5>
-                                            <div class="post-date">Publicado por <a href="#">'.$row["Empresa"].'</a></div>
+                                            <h5 class="post-title"><a href="job-view.php?id=' . $id . '">' . $row["Titulo"] . '</a></h5>
+                                            <div class="post-date">Publicado por <a href="#">' . $row["Empresa"] . '</a></div>
                                         </div>
                                     </div>
                                 </div>';
-                        }
-                        mysqli_free_result($datos);
-                    ?>
+                    }
+                    mysqli_free_result($datos);
+                }else{
+                    echo "No hay ningún anuncio publicado.\n";
+                    echo "\nSe el primero en publicar.";
+                    echo '<div class="row form-group-left mt-4"><div class="col-md-12"><a class="btn btn-primary ml-lg-2" href="job-form.php" type="button">Publicar empleo</a></div></div>';
+                }
+                
+                ?>
             </div>
         </div>
     </div>
