@@ -38,18 +38,7 @@
 
     </header>
 
-    <script type="text/javascript">
-        function passwordValidation() {
-            var password = document.getElementById("contra1");
-            var password2 = document.getElementById("contra2");
-            //Contraseña vacia
 
-            
-            if (password != password2){
-                alert("Las contraseñas no coinciden.")
-            }
-        }
-    </script>
     <script type="text/javascript">
         function nif(dni) {
             var numero
@@ -81,32 +70,40 @@
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
                 <form action="register.php" method="post" class="contact-form py-5 px-lg-5">
-
+                    <script type="text/javascript">
+                        function passwordValidation() {
+                            var password = document.getElementById("contra1");
+                            var password2 = document.getElementById("contra2");
+                            if (password != password2) {
+                                alert("Las contraseñas no coinciden.")
+                            }
+                        }
+                    </script>
                     <h2 class="mb-4 font-weight-medium text-secondary">Regístrate</h2>
 
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label class="text-black" for="NombreApellidos">Nombre y apellidos</label>
-                            <input type="text" name="NombreApellidos" class="form-control" >
+                            <input type="text" name="NombreApellidos" class="form-control">
                         </div>
                         <div class="col-md-12">
                             <label class="text-black" for="Email">Email</label>
-                            <input type="email"  name="Email" class="form-control" >
+                            <input type="email" name="Email" class="form-control">
                         </div>
 
                         <div class="col-md-6">
                             <label class="text-black" for="Contraseña">Contraseña</label>
-                            <input type="password" id="contra1" name="Contraseña" class="form-control" >
+                            <input type="password" id="contra1" name="Contraseña" class="form-control">
                             <span id="message"></span>
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="RepiteContraseña">Repite la contraseña</label>
-                            <input type="password" id="contra2" name="RepiteContraseña" class="form-control" >
+                            <input type="password" id="contra2" name="RepiteContraseña" class="form-control">
                         </div>
 
                         <div class="col-md-6">
                             <label class="text-black" for="DNI">DNI</label>
-                            <input type="text" id="DNI" name="DNI" class="form-control" >
+                            <input type="text" id="DNI" name="DNI" class="form-control">
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="fNacimiento">Fecha de nacimiento</label>
@@ -115,7 +112,7 @@
 
                         <div class="col-md-12">
                             <label class="text-black" for="Telefono">Télefono</label>
-                            <input type="text" pattern="[0-9]{9}" title="Debe ser un número de 9 dígitos" name="Telefono" class="form-control" required="required" >
+                            <input type="text" pattern="[0-9]{9}" title="Debe ser un número de 9 dígitos" name="Telefono" class="form-control" required="required">
                         </div>
                     </div>
                     <p>Creando una cuenta acepta nuestros términos y condiciones <a href="#" style="color:dodgerblue">Términos y condiciones</a>.</p>

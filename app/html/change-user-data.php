@@ -103,7 +103,7 @@ session_start();
                         </div>
                         <div class="form-group">
                             <label for="website">Teléfono</label>
-                            <input type="text" id="text" class="form-control" name="telefono" value="<?php echo $row['Telefono'] ?>">
+                            <input type="text" pattern="[0-9]{9}" title="Debe ser un número de 9 dígitos" id="text" class="form-control" name="telefono" value="<?php echo $row['Telefono'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="website">DNI</label>
