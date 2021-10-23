@@ -68,24 +68,6 @@ if (isset($_SESSION['usuario'])){
     <div class="page-section">
         <div class="container">
             <h2 class="mb-4 font-weight-medium text-secondary">Buscador de empleos</h2>
-            <div class="row">
-                <div class="col-sm-10">
-                    <form action="#" class="form-search-blog">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <select id="categories" class="custom-select bg-light">
-                                    <option>Todos los empleos</option>
-                                    <option value="travel">Bizkaia</option>
-                                    <option value="lifestyle">Gipuzkoa</option>
-                                    <option value="healthy">Araba</option>
-                                    <option value="food">Fuera del Pais Vasco</option>
-                                </select>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Introduce una palabra clave...">
-                        </div>
-                    </form>
-                </div>
-            </div>
             <?
                 $hostname = "db";
                 $username = "admin";

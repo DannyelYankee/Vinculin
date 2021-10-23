@@ -110,7 +110,8 @@ if (isset($_SESSION['usuario'])){
                             </div>
                         </div>
                         <div class="post-content">
-                            <p><?echo $row["Descripcion"];?></p>
+
+                            <?echo nl2br($row["Descripcion"]);?>
                         </div>
                     </div>
 

@@ -95,18 +95,18 @@ session_start();
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="text-black" for="fname">Titulo</label>
-                            <input type="text" id="fname" class="form-control" name="titulo" value=<?php echo $row["Titulo"] ?>>
+                            <input type="text" id="fname" class="form-control" name="titulo" value="<?php echo $row["Titulo"] ?>">
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="lname">Empresa</label>
-                            <input type="text" id="lname" class="form-control" name="empresa" value=<?php echo $row["Empresa"] ?>>
+                            <input type="text" id="lname" class="form-control" name="empresa" value="<?php echo $row["Empresa"] ?>">
                         </div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black">Localidad</label>
-                            <input type="text" id="text" class="form-control" name="localidad" value=<?php echo $row["Localidad"] ?>>
+                            <input type="text" id="text" class="form-control" name="localidad" value="<?php echo $row["Localidad"] ?>">
                         </div>
                     </div>
 
@@ -121,7 +121,7 @@ session_start();
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black" for="message">Descripción</label>
-                            <textarea id="message" cols="30" rows="5" class="form-control" value=<?php echo $row["Descripcion"] ?> name="descripcion"></textarea>
+                            <textarea id="message" cols="30" rows="5" class="form-control" value="<?php echo $row["Descripcion"] ?>" name="descripcion"></textarea>
                         </div>
                     </div>
 

@@ -128,7 +128,6 @@ session_start();
                     $datos2 = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `propietario` = '$email'");
                     
                     if ($datos2 == true) {
-                        //$row2 = mysqli_fetch_array($datos2);
 
                         while ($row2 = mysqli_fetch_array($datos2)) {
                             $id2 = $row2["id"];
