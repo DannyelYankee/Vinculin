@@ -98,7 +98,7 @@ session_start();
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Email </label>
-                                <input type="text" id="text" class="form-control" name="email" value="<?php echo $row['Email'] ?>">
+                                <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="text" class="form-control" name="email" value="<?php echo $row['Email'] ?>">
                             </div>
                         </div>
                         <div class="form-group">
