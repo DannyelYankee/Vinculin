@@ -18,11 +18,6 @@ $titulo = $_POST["titulo"];
 $empresa = $_POST["empresa"];
 $descripcion = $_POST["descripcion"];
 $localidad = $_POST["localidad"];
-echo $id;
-echo $titulo;
-echo $empresa;
-echo $descripcion;
-echo $localidad;
 
 mysqli_query($con,"UPDATE Empleo SET Titulo='$titulo', Empresa='$empresa', Descripcion='$descripcion', Localidad ='$localidad' WHERE id ='$id'");
 header("Location: datos-usuario.php");
