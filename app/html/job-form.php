@@ -4,7 +4,6 @@ session_start();
 
 if (!isset($_SESSION['usuario'])) {
     echo "<script> alert('Tienes que estar identificado para publicar una oferta.');</script>";
-    //header('Location: login.php');
     echo '<script> window.location.replace("http://localhost:81/login.html");</script>';
 }
 ?>
