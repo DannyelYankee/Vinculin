@@ -121,7 +121,7 @@ session_start();
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black" for="message">Descripción</label>
-                            <textarea id="message" cols="30" rows="5" class="form-control" value="<?php echo $row["Descripcion"] ?>" name="descripcion"></textarea>
+                            <textarea id="message" cols="30" rows="5" class="form-control" name="descripcion"><?php echo $row["Descripcion"] ?></textarea>
                         </div>
                     </div>
 
