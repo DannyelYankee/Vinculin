@@ -10,8 +10,8 @@ $db = "database";
 
 $NombreApellidos = $_POST["NombreApellidos"];
 $Email = $_POST["Email"];
-$Contraseña = $_POST["Contraseña"];
-$DNI = $_POST["DNI"];
+$Contraseña = $_POST["contra1"];
+$DNI = $_POST["dni"];
 $fNacimiento = $_POST["fNacimiento"];
 $Telefono = $_POST["Telefono"];
 
@@ -25,8 +25,8 @@ mysqli_select_db($con, $db);
 $verificacion = mysqli_query($con, "SELECT * FROM Usuario where Email='$Email'");
 echo mysqli_num_rows($verificacion);
 if (mysqli_num_rows($verificacion) > 0) {
-    echo "<script> alert('Ya existe un usuario con ese usuario'); </script>";
-    header("Location: http://localhost:81/signup.php");
+    echo "<script> alert('Ya existe un usuario con ese email.'); </script>";
+    echo '<script> window.location.replace("./signup.php"); </script>';
     exit();
 }
 $sql = "insert into Usuario (NombreApellidos, Email, Contraseña, DNI, FechaNacimiento, Telefono) values ('$NombreApellidos','$Email',md5('$Contraseña'),'$DNI','$fNacimiento','$Telefono');";

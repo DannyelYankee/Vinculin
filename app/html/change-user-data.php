@@ -60,16 +60,86 @@ session_start();
             </div>
         </nav>
     </header>
+    <script type="text/javascript">
+                function passwordValidation() {
+
+                    //comprobar que los campos no están vacíos
+                    var nombre = document.registro.NombreApellidos.value;
+                    var fecha = document.registro.fNacimiento.value;
+                    var password = document.registro.contra1.value;
+                    var password2 = document.registro.contra2.value;
+                    var dni = document.registro.dni.value;
+                    var email = document.registro.Email.value;
+                    var telf = document.registro.Telefono.value;
+
+                    if (nombre === "" || fecha === "" || dni === "" || email === "" || telf === "") {
+                        alert('Hay campos vacíos. Por favor rellene todos los campos.');
+                        window.location.replace("change-user-data.php");
+                        return;
+                    }
+
+
+                    //comprobar que contraseña y repite contraseña coinciden
+                    if (password != password2) {
+                        alert("Las contraseñas no coinciden. ");
+                        window.location.replace("change-user-data.php");
+                        return;
+                    }
+                    //comprobar que el dni cumple con el formato
+
+                    var numero;
+                    var letr;
+                    var letra;
+                    var expresion_regular_dni;
+
+                    expresion_regular_dni = /^\d{8}\-+[A-Z]$/;
+
+                    if (expresion_regular_dni.test(dni)) {
+                        numero = dni.substr(0, dni.length - 2);
+                        letr = dni.substr(dni.length - 1, 1);
+                        numero = numero % 23;
+                        letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+                        letra = letra.substring(numero, numero + 1);
+                        if (letra != letr.toUpperCase()) {
+                            alert('Dni erroneo, la letra del NIF no se corresponde');
+                            window.location.replace("change-user-data.php");
+                            return;
+                        }
+                    } else {
+                        alert('Dni erroneo, formato no válido');
+                        window.location.replace("change-user-data.php");
+                        return;
+                    }
+                    //comprobar formato correo
+
+                    var expresion_regular_email = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+                    if (!expresion_regular_email.test(email)) {
+                        alert('Email incorrecto. Siga el formato ejemplo@ejemplo.com');
+                        window.location.replace("change-user-data.php");
+                        return;
+                    }
+
+                    //comprobar telefono
+
+                    var expresion_regular_telefono = /[0-9]{9}/;
+                    if (!expresion_regular_telefono.test(telf)) {
+                        alert('El número de teléfono solo puede contener números y debe ser de 9 dígitos.')
+                        window.location.replace("change-user-data.php");
+                        return;
+                    }
+
+                    document.registro.submit();
+                }
+            </script>
     <div class="page-section pt-5">
         <div class="container">
             <nav aria-label="Breadcrumb">
                 <ul class="breadcrumb p-0 mb-0 bg-transparent">
                     <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
                     <li class="breadcrumb-item"><a href="datos-usuario.php">Mi perfil</a></li>
-                    
-                </ul>
-            </nav>
 
+                </ul>
+            </nav>          
             <div class="row">
 
                 <?
@@ -90,24 +160,24 @@ session_start();
                 ?>
                 <div class="comment-form-wrap pt-5">
                     <h2 class="mb-5">Datos de usuario</h2>
-                    <form action="update-user-data.php" method="POST">
+                    <form name="registro" action="update-user-data.php" method="post">
                         <div class="form-row form-group">
                             <div class="col-md-6">
                                 <label for="name">Nombre y apellidos </label>
-                                <input type="text" id="text" class="form-control" name="nombre" value="<?php echo $row['NombreApellidos']?>" >
+                                <input type="text" id="text" class="form-control" name="NombreApellidos" value="<?php echo $row['NombreApellidos'] ?>">
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Email </label>
-                                <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="text" class="form-control" name="email" value="<?php echo $row['Email'] ?>">
+                                <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="text" class="form-control" name="Email" value="<?php echo $row['Email'] ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="website">Teléfono</label>
-                            <input type="text" pattern="[0-9]{9}" title="Debe ser un número de 9 dígitos" id="text" class="form-control" name="telefono" value="<?php echo $row['Telefono'] ?>">
+                            <input type="text" pattern="[0-9]{9}" title="Debe ser un número de 9 dígitos" id="text" class="form-control" name="Telefono" value="<?php echo $row['Telefono'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="website">DNI</label>
-                            <input type="text" id="text" class="form-control" name="DNI" value="<?php echo $row['DNI'] ?>">
+                            <input type="text" id="text" class="form-control" name="dni" value="<?php echo $row['DNI'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="website">Fecha de nacimiento</label>
@@ -115,15 +185,15 @@ session_start();
                         </div>
                         <div class="form-group">
                             <label for="website">Contraseña</label>
-                            <input type="text" id="text" class="form-control" name="contra1" value="Ingrese la nueva contraseña.">
+                            <input type="password" id="text" class="form-control" name="contra1" placeholder="Ingrese la nueva contraseña.">
                         </div>
                         <div class="form-group">
                             <label for="website">Repita contraseña</label>
-                            <input type="text" id="text" class="form-control" name="contra2" value="Por favor repita la contraseña.">
+                            <input type="password" id="text" class="form-control" name="contra2" placeholder="Por favor repita la contraseña.">
                         </div>
                         <div class="row form-group mt-4">
                             <div class="col-md-12">
-                                <input type="submit" value="Guardar Cambios" class="btn btn-primary">
+                                <input type="button" value="Guardar Cambios" class="btn btn-primary" onclick="passwordValidation()">
                             </div>
                         </div>
 

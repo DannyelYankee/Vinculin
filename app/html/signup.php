@@ -40,67 +40,76 @@
 
     <script type="text/javascript">
         function passwordValidation() {
-            password = document.registro.contra1.value;
-            password2 = document.registro.contra2.value;
-            var valido = false;
-            if(password == password2){
-                valido = true;
+
+            //comprobar que los campos no están vacíos
+            var nombre = document.registro.NombreApellidos.value;
+            var fecha = document.registro.fNacimiento.value;
+            var password = document.registro.contra1.value;
+            var password2 = document.registro.contra2.value;
+            var dni = document.registro.dni.value;
+            var email = document.registro.Email.value;
+            var telf = document.registro.Telefono.value;
+
+            if (nombre === "" || fecha === "" || password==="" || password2==="" || dni==="" || email==="" || telf==="") {
+                alert('Hay campos vacíos. Por favor rellene todos los campos.');
+                window.location.replace("signup.php");
+                return;
             }
-            else{
+
+            
+            //comprobar que contraseña y repite contraseña coinciden
+            if (password != password2) {
                 alert("Las contraseñas no coinciden. ");
+                window.location.replace("signup.php");
+                return;
             }
-            var dni = document.registro.dni;
+            //comprobar que el dni cumple con el formato
+            
             var numero;
             var letr;
             var letra;
             var expresion_regular_dni;
 
-            expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+            expresion_regular_dni = /^\d{8}\-+[A-Z]$/;
 
-            if (expresion_regular_dni.test(dni) == true) {
-                numero = dni.substr(0, dni.length - 1);
+            if (expresion_regular_dni.test(dni)) {
+                numero = dni.substr(0, dni.length - 2);
                 letr = dni.substr(dni.length - 1, 1);
                 numero = numero % 23;
                 letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
                 letra = letra.substring(numero, numero + 1);
                 if (letra != letr.toUpperCase()) {
                     alert('Dni erroneo, la letra del NIF no se corresponde');
-                } else {
-                    valido = true;
+                    window.location.replace("signup.php");
+                    return;
                 }
             } else {
                 alert('Dni erroneo, formato no válido');
+                window.location.replace("signup.php");
+                return;
             }
-            if (valido){
-                document.registro.submit();
+            //comprobar formato correo
+            
+            var expresion_regular_email = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+            if (!expresion_regular_email.test(email)) {
+                alert('Email incorrecto. Siga el formato ejemplo@ejemplo.com');
+                window.location.replace("signup.php");
+                return;
             }
+
+            //comprobar telefono
+            
+            var expresion_regular_telefono = /[0-9]{9}/;
+            if (!expresion_regular_telefono.test(telf)) {
+                alert('El número de teléfono solo puede contener números y debe ser de 9 dígitos.')
+                window.location.replace("signup.php");
+                return;
+            }
+
+            document.registro.submit();
         }
     </script>
-    <script type="text/javascript">
-        function nif(dni) {
-            var numero
-            var letr
-            var letra
-            var expresion_regular_dni
 
-            expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
-
-            if (expresion_regular_dni.test(dni) == true) {
-                numero = dni.substr(0, dni.length - 1);
-                letr = dni.substr(dni.length - 1, 1);
-                numero = numero % 23;
-                letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
-                letra = letra.substring(numero, numero + 1);
-                if (letra != letr.toUpperCase()) {
-                    alert('Dni erroneo, la letra del NIF no se corresponde');
-                } else {
-                    alert('Dni correcto');
-                }
-            } else {
-                alert('Dni erroneo, formato no válido');
-            }
-        }
-    </script>
 
 
     <div class="container-fluid mt-4">
