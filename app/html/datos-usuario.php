@@ -131,8 +131,8 @@ session_start();
                     </script>
                     <h2 class="mb-5">Tus anuncios</h2>
                     <?
-                    $datos2 = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `propietario` = '$email'");
-                    
+                    $datos2 = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `Email` = '$email'");
+
                     if (mysqli_num_rows($datos2)>0) {
 
                         while ($row2 = mysqli_fetch_array($datos2)) {

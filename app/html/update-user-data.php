@@ -21,11 +21,21 @@ $DNI= $_POST["dni"];
 $fNacimiento = $_POST["fNacimiento"];
 $Telefono = $_POST["Telefono"];
 
-$sql = mysqli_query($con,"UPDATE Usuario SET NombreApellidos='$NombreApellidos', Email='$Email', Telefono='$Telefono', DNI='$DNI', FechaNacimiento='$fNacimiento' WHERE Email='$currentEmail'");
-$_SESSION['usuario']['Email'] = $Email;
+$sql = mysqli_query($con,"UPDATE Usuario SET NombreApellidos='$NombreApellidos', Telefono='$Telefono', DNI='$DNI', FechaNacimiento='$fNacimiento' WHERE Email='$currentEmail'");
+if($currentEmail!=$Email){
+    
+    $updateEmailUsuario = "UPDATE Usuario SET Email='$Email' WHERE Email='$currentEmail'";
+    $updateEmailEmpleo = "UPDATE Empleo SET Email='$Email' WHERE Email='$currentEmail'";
+    $query_updateUsuario = mysqli_query($con,$updateEmailUsuario);
+    $query_updateEmpleo = mysqli_query($con,$updateEmailEmpleo);
+    $_SESSION['usuario']['Email'] = $Email;
+}
+
 if(md5("") != $Contraseña1 && $Contraseña2!=md5("")){
     $sql2=mysqli_query($con,"UPDATE Usuario SET Contraseña='$Contraseña1' WHERE Email='$currentEmail'");
+    
 }
+
 
 header("Location: datos-usuario.php");
 
