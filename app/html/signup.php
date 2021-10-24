@@ -126,7 +126,7 @@
                         </div>
                         <div class="col-md-12">
                             <label class="text-black" for="Email">Email</label>
-                            <input type="email" name="Email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="required">
+                            <input type="email" name="Email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="required" placeholder="ejemplo@email.com">
                         </div>
 
                         <div class="col-md-6">
@@ -141,7 +141,7 @@
 
                         <div class="col-md-6">
                             <label class="text-black" for="DNI">DNI</label>
-                            <input type="text" id="DNI" name="dni" class="form-control" required="required">
+                            <input type="text" id="DNI" name="dni" class="form-control" required="required" placeholder="11111111-Z">
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="fNacimiento">Fecha de nacimiento</label>
