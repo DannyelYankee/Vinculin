@@ -6,21 +6,28 @@ $username = "admin";
 $password = "test";
 $db = "database";
 
-$con = mysqli_connect($hostname, $username, $password, $db);
+$con = new mysqli($hostname, $username, $password, $db);
 if ($con->connect_error) {
     echo "Database connectin failed.";
     die("Database connection failed: " . $con->connect_error);
 }
-mysqli_select_db($con, $db);
+$con->select_db($db);
+
 
 $Email = $_POST["email"];
-$Contraseña = $_POST["contra"];
+$Contraseña = md5($_POST["contra"]);
 
-$sql = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$Email' AND Contraseña=md5('$Contraseña')");
-$row = mysqli_fetch_array($sql);
+$stmt = $con->prepare("SELECT * FROM Usuario WHERE Email= ? AND Contraseña= ? ");
 
-if (is_array($row)) {
-    //$_SESSION['usuario']['loggedIn'] = true;
+$stmt->bind_param("ss", $Email, $Contraseña);
+$stmt->execute();
+$result=$stmt->get_result();
+
+$row = $result->fetch_assoc();
+
+while ($row) {
+    
+
     $_SESSION['usuario']['Email'] = $row['Email'];    
     $_SESSION['usuario']['NombreApellidos'] = $row['NombreApellidos'];
     $_SESSION['usuario']['DNI']=$row['DNI'];
@@ -28,11 +35,13 @@ if (is_array($row)) {
     $_SESSION['usuario']['Telefono']=$row['Telefono'];
     $_SESSION['usuario']['Contraseña']=$row['Contraseña'];
     header("Location: ./index.php");
-} else {
-    echo "<script> alert('Email o contraseña incorrectos.'); </script>";
-    echo "<script> window.location.replace('http://localhost:81/login.html'); </script>";
-    exit();
+    mysqli_close($con);
+    return;
 }
+echo "<script> alert('Email o contraseña incorrectos.'); </script>";
+echo "<script> window.location.replace('http://localhost:81/login.html'); </script>";
+exit();
+
 //header ("Location: login.html");
 mysqli_close($con)
 
