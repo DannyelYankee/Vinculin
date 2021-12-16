@@ -74,16 +74,19 @@ session_start();
             $username = "admin";
             $password = "test";
             $db = "database";
-            $con = mysqli_connect($hostname, $username, $password);
+            $con = new mysqli($hostname, $username, $password);
             if ($con->connect_error) {
                 echo "Database connectin failed.";
                 die("Database connection failed: " . $con->connect_error);
             }
-            mysqli_select_db($con, $db);
+            $con->select_db($db);
             $email = $_SESSION['usuario']['Email'];
 
-            $datos = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$email'");
-            $row = mysqli_fetch_array($datos);
+            $datos = $con->prepare("SELECT * FROM Usuario WHERE Email=?");
+            $datos->bind_param("s", $email);
+            $datos->execute();
+            $result = $datos->get_result();
+            $row = $result->fetch_assoc();
             ?>
 
             <div class="row">
@@ -121,35 +124,41 @@ session_start();
 
                     </form>
                 </div>
-                
+
                 <div class="col">
                     <script type="text/javascript">
-                    function check(){
-                        return confirm("¿Estas seguro que quieres borrar el empleo?");
-                    }
-
+                        function check() {
+                            return confirm("¿Estas seguro que quieres borrar el empleo?");
+                        }
                     </script>
                     <h2 class="mb-5">Tus anuncios</h2>
                     <?
-                    $datos2 = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `Email` = '$email'");
 
-                    if (mysqli_num_rows($datos2)>0) {
+                    $datos2 = $con->prepare("SELECT * FROM `Empleo` WHERE `Email` = ?");
+                    $datos2->bind_param("s", $email);
+                    $datos2->execute();
+                    $result = $datos2->get_result();
 
-                        while ($row2 = mysqli_fetch_array($datos2)) {
+
+
+                    if ($result) {
+
+                        while ($row2 = $result->fetch_array()) {
                             $id2 = $row2["id"];
+
                             echo '<div class="col-lg-10 py-3">
-                                    <div class="card w-100">
-                                        <div class="card-body">
-                                            <h5 class="card-title">' . $row2["Titulo"] . '</h5>
-                                            <p class="card-text">' . $row2["Localidad"] . '</p>
-                                            <a href="change-job-info.php?id='.$id2.'" class="btn btn-primary">Modificar datos</a>
-                                            <a  href="delete-job.php?id='.$id2.'" class="btn btn-secondary" onclick="return check()">Eliminar</a>
-                                        </div>
+                                <div class="card w-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">' . $row2["Titulo"] . '</h5>
+                                        <p class="card-text">' . $row2["Localidad"] . '</p>
+                                        <a href="change-job-info.php?id=' . $id2 . '" class="btn btn-primary">Modificar datos</a>
+                                        <a  href="delete-job.php?id=' . $id2 . '" class="btn btn-secondary" onclick="return check()">Eliminar</a>
                                     </div>
-                                </div>';
+                                </div>
+                            </div>';
                         }
-                        mysqli_free_result($datos2);
-                    }else{
+                        $datos2->free_result();
+                    } else {
                         echo "No tienes ningún anuncio publicado.\n";
                         echo "\nPublica tu primer empleo haciendo un click.";
                         echo '<div class="row form-group mt-4"><div class="col-md-12"><a class="btn btn-primary ml-lg-2" href="job-form.php" type="button">Publicar empleo</a></div></div>';
