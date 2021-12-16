@@ -13,7 +13,6 @@ if ($con->connect_error) {
 }
 $con->select_db($db);
 
-
 $id = $_GET['id'];
 $stmt = $con->prepare("DELETE FROM `Empleo` WHERE `Empleo`.`id` = ?");
 $stmt->bind_param("i",$id);
