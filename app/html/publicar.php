@@ -18,16 +18,16 @@ $empresa = $_POST["empresa"];
 $descripcion = $_POST["descripcion"];
 $localidad = $_POST["localidad"];
 
-$con = mysqli_connect($hostname, $username, $password, $db);
+$con = new mysqli($hostname, $username, $password, $db);
 if ($con->connect_error) {
     echo "Database connectin failed.";
     die("Database connection failed: " . $con->connect_error);
 }
-
-mysqli_select_db($con, $db);
-$sql = "insert into Empleo (Email,Titulo,Empresa,localidad,Descripcion) values ('$propietario','$titulo','$empresa','$localidad','$descripcion');";
-mysqli_query($con, $sql);
-
+//('$propietario','$titulo','$empresa','$localidad','$descripcion')
+$con->select_db($db);
+$stmt= $con->prepare("insert into Empleo (Email,Titulo,Empresa,localidad,Descripcion) values (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss",$propietario,$titulo,$empresa,$localidad,$descripcion);
+$stmt->execute();
 mysqli_close($con)
 ?>
 
