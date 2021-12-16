@@ -6,20 +6,22 @@ $username = "admin";
 $password = "test";
 $db = "database";
 
-$con = mysqli_connect($hostname, $username, $password, $db);
+$con = new mysqli($hostname, $username, $password, $db);
 if ($con->connect_error) {
     echo "Database connectin failed.";
     die("Database connection failed: " . $con->connect_error);
 }
-mysqli_select_db($con, $db);
+$con->select_db($db);
 
 $Email = $_POST["email"];
 
 
-$sql = mysqli_query($con,"SELECT * FROM Usuario where Email='$Email'");
+$sql = $con->prepare("SELECT * FROM Usuario where Email=?");
+$sql->bind_param("s",$Email);
+$sql->execute();
+$result=$sql->get_result();
 
-
-if (mysqli_num_rows($sql)>0) {
+if ($result) {
 
     header("Location: ./index.php");
 } else {
