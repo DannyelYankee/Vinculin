@@ -2,6 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script type="text/javascript">
+    var t;
+    window.onload=resetTimer;
+    document.onkeypress=resetTimer;
+    document.onmousemove = resetTimer;
+    function logout(){
+        alert("El sistema se cierra por 1 minuto de inactividad.");
+        location.href='logout.php';
+    }
+    function resetTimer(){
+        clearTimeout(t);
+        t=setTimeout(logout,60000)
+    }
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
