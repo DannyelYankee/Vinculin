@@ -34,17 +34,19 @@ $hostname = "db";
 $username = "admin";
 $password = "test";
 $db = "database";
-$con = mysqli_connect($hostname, $username, $password);
+$con = new mysqli($hostname, $username, $password);
 if ($con->connect_error) {
     echo "Database connectin failed.";
     die("Database connection failed: " . $con->connect_error);
 }
-mysqli_select_db($con, $db);
+$con->select_db($db);
 
 $id = $_GET['id'];
-$datos = mysqli_query($con, "SELECT * FROM `Empleo` WHERE `id` = $id");
-
-$row = mysqli_fetch_array($datos);
+$datos =$con->prepare("SELECT * FROM `Empleo` WHERE `id` = ?");
+$datos->bind_param("i",$id);
+$datos->execute();
+$result=$datos->get_result();
+$row = $result->fetch_assoc();
 ?>
 
 <body>
