@@ -6,15 +6,19 @@ $username = "admin";
 $password = "test";
 $db = "database";
 
-$con = mysqli_connect($hostname,$username,$password,$db);
+$con = new mysqli($hostname,$username,$password,$db);
 if ($con->connect_error) {
     echo "Database connectin failed.";
     die("Database connection failed: " . $con->connect_error);
 }
-mysqli_select_db($con,$db);
+$con->select_db($db);
+
 
 $id = $_GET['id'];
-mysqli_query($con,"DELETE FROM `Empleo` WHERE `Empleo`.`id` = $id");
+$stmt = $con->prepare("DELETE FROM `Empleo` WHERE `Empleo`.`id` = ?");
+$stmt->bind_param("i",$id);
+$stmt->execute();
+
 header("Location: datos-usuario.php");
 
 mysqli_close($con);
