@@ -147,16 +147,18 @@ session_start();
                 $username = "admin";
                 $password = "test";
                 $db = "database";
-                $con = mysqli_connect($hostname, $username, $password);
+                $con = new mysqli($hostname, $username, $password);
                 if ($con->connect_error) {
                     echo "Database connectin failed.";
                     die("Database connection failed: " . $con->connect_error);
                 }
-                mysqli_select_db($con, $db);
+                $con->select_db($db);
                 $email = $_SESSION['usuario']['Email'];
-
-                $datos = mysqli_query($con, "SELECT * FROM Usuario WHERE Email='$email'");
-                $row = mysqli_fetch_array($datos);
+                $datos=$con->prepare("SELECT * FROM Usuario WHERE Email= ?");
+                $datos->bind_param("s",$email);
+                $datos->execute();
+                $result = $datos->get_result();
+                $row = $result->fetch_assoc();
                 ?>
                 <div class="comment-form-wrap pt-5">
                     <h2 class="mb-5">Datos de usuario</h2>
