@@ -15,17 +15,21 @@ $con->select_db($db);
 
 
 $Email = $_POST["email"];
-$Contraseña = md5($_POST["contra"]);
+$Contraseña =$_POST["contra"];
 
-$stmt = $con->prepare("SELECT * FROM Usuario WHERE Email= ? AND Contraseña= ? ");
 
-$stmt->bind_param("ss", $Email, $Contraseña);
+
+$stmt = $con->prepare("SELECT * FROM Usuario WHERE Email= ?");
+
+$stmt->bind_param("s", $Email);
 $stmt->execute();
 $result=$stmt->get_result();
 
 $row = $result->fetch_assoc();
+$hashed_contraseña = $row['Contraseña'];
+$match_contraseña = password_verify($Contraseña,$hashed_contraseña);
 
-while ($row) {
+while ($match_contraseña) {
     
 
     $_SESSION['usuario']['Email'] = $row['Email'];    

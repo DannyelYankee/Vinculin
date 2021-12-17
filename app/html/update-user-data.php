@@ -14,9 +14,9 @@ $con->select_db($db);
 $currentEmail = $_SESSION['usuario']['Email']; //email guardado en la sesion del usuario
 $NombreApellidos = $_POST["NombreApellidos"];
 $Email = $_POST["Email"];
-$Contraseña1 = md5($_POST["contra1"]);
+$Contraseña1 = $_POST["contra1"];
 
-$Contraseña2 = md5($_POST["contra2"]);
+$Contraseña2 = $_POST["contra2"];
 $DNI= $_POST["dni"];
 $fNacimiento = $_POST["fNacimiento"];
 $Telefono = $_POST["Telefono"];
@@ -39,12 +39,12 @@ if($currentEmail!=$Email){
     $_SESSION['usuario']['Email'] = $Email;
 }
 
-if(md5("") != $Contraseña1 && $Contraseña2!=md5("")){
+if($Contraseña1!='' && $Contraseña2!=''){
     //"UPDATE Usuario SET Contraseña='$Contraseña1' WHERE Email='$currentEmail'"
     $sql2=$con->prepare("UPDATE Usuario SET Contraseña=? WHERE Email=?");
-    $sql2->bind_param("ss",$Contraseña1,$currentEmail);
-    $sql2->execute();
-    
+    $hashed_contraseña = password_hash($Contraseña1,PASSWORD_DEFAULT);
+    $sql2->bind_param("ss",$hashed_contraseña,$currentEmail);
+    $sql2->execute();    
 }
 
 

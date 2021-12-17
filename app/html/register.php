@@ -35,8 +35,9 @@ if ($row) {
     exit();
 }
 //'$NombreApellidos','$Email',md5('$Contraseña'),'$DNI','$fNacimiento','$Telefono'
+
 $sql = $con->prepare("insert into Usuario (NombreApellidos, Email, Contraseña, DNI, FechaNacimiento, Telefono) values (?,?,?,?,?,?)");
-$sql->bind_param("sssssi", $NombreApellidos, $Email, md5($Contraseña), $DNI, $fNacimiento, $Telefono);
+$sql->bind_param("sssssi", $NombreApellidos, $Email, password_hash($Contraseña,PASSWORD_DEFAULT), $DNI, $fNacimiento, $Telefono);
 $sql->execute();
 $result = $sql->get_result();
 
