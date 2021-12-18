@@ -14,6 +14,7 @@ $Contraseña = $_POST["contra1"];
 $DNI = $_POST["dni"];
 $fNacimiento = $_POST["fNacimiento"];
 $Telefono = $_POST["Telefono"];
+$cuenta = $_POST["Banco"];
 
 $con = new mysqli($hostname, $username, $password, $db);
 if ($con->connect_error) {
@@ -22,27 +23,32 @@ if ($con->connect_error) {
 }
 $con->select_db($db);
 
-//$verificacion = mysqli_query($con, "SELECT * FROM Usuario where Email='$Email'");
+
 $stmt = $con->prepare("SELECT * FROM Usuario where Email=?");
 $stmt->bind_param("s", $Email);
 $stmt->execute();
 $verificacion = $stmt->get_result();
-echo mysqli_num_rows($verificacion);
+
 $row = $verificacion->fetch_assoc();
 if ($row) {
     echo "<script> alert('Ya existe un usuario con ese email.'); </script>";
     echo '<script> window.location.replace("./signup.php"); </script>';
     exit();
 }
-//'$NombreApellidos','$Email',md5('$Contraseña'),'$DNI','$fNacimiento','$Telefono'
 
-$sql = $con->prepare("insert into Usuario (NombreApellidos, Email, Contraseña, DNI, FechaNacimiento, Telefono) values (?,?,?,?,?,?)");
-$sql->bind_param("sssssi", $NombreApellidos, $Email, password_hash($Contraseña,PASSWORD_DEFAULT), $DNI, $fNacimiento, $Telefono);
+
+//ciframos la cuenta bancaria
+$ciphering = "AES-128-CTR";
+$iv_length = openssl_cipher_iv_length($ciphering);
+$options = 0;
+$encryption_iv = '1234567891011121';
+$encryption_key = 'clave';
+$cuenta_cifrada = openssl_encrypt($cuenta,$ciphering,$encryption_key,$options,$encryption_iv);
+
+$sql = $con->prepare("insert into Usuario (NombreApellidos, Email, Contraseña, DNI, FechaNacimiento, Telefono, Banco) values (?,?,?,?,?,?,?)");
+$sql->bind_param("sssssis", $NombreApellidos, $Email, password_hash($Contraseña, PASSWORD_DEFAULT), $DNI, $fNacimiento, $Telefono, $cuenta_cifrada);
 $sql->execute();
 $result = $sql->get_result();
-
-
-
 
 $_SESSION['usuario']['Email'] = $Email;
 $_SESSION['usuario']['NombreApellidos'] = $NombreApellidos;
@@ -50,10 +56,8 @@ $_SESSION['usuario']['DNI'] = $row['DNI'];
 $_SESSION['usuario']['FechaNacimiento'] = $fNacimiento;
 $_SESSION['usuario']['Telefono'] = $Telefono;
 $_SESSION['usuario']['Contraseña'] = $Contraseña;
+
 header("Location: ./index.php");
-
-
-
 
 mysqli_close($con)
 

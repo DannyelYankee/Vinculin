@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     var t;
     window.onload=resetTimer;
     document.onkeypress=resetTimer;
@@ -18,6 +18,7 @@ session_start();
         t=setTimeout(logout,60000)
     }
 </script>
+-->
 
 <head>
     <meta charset="UTF-8">
@@ -76,76 +77,123 @@ session_start();
         </nav>
     </header>
     <script type="text/javascript">
-                function passwordValidation() {
+        function passwordValidation() {
 
-                    //comprobar que los campos no están vacíos
-                    var nombre = document.registro.NombreApellidos.value;
-                    var fecha = document.registro.fNacimiento.value;
-                    var password = document.registro.contra1.value;
-                    var password2 = document.registro.contra2.value;
-                    var dni = document.registro.dni.value;
-                    var email = document.registro.Email.value;
-                    var telf = document.registro.Telefono.value;
+            //comprobar que los campos no están vacíos
+            var nombre = document.registro.NombreApellidos.value;
+            var fecha = document.registro.fNacimiento.value;
+            var password = document.registro.contra1.value;
+            var password2 = document.registro.contra2.value;
+            var dni = document.registro.dni.value;
+            var email = document.registro.Email.value;
+            var telf = document.registro.Telefono.value;
+            var banco = document.registro.Banco.value;
 
-                    if (nombre === "" || fecha === "" || dni === "" || email === "" || telf === "") {
-                        alert('Hay campos vacíos. Por favor rellene todos los campos.');
-                        window.location.replace("change-user-data.php");
-                        return;
-                    }
+            if (nombre === "" || fecha === "" || dni === "" || email === "" || telf === "" || banco === "" ) {
+                alert('Hay campos vacíos. Por favor rellene todos los campos.');
+                window.location.replace("change-user-data.php");
+                return;
+            }
 
 
-                    //comprobar que contraseña y repite contraseña coinciden
-                    if (password != password2) {
-                        alert("Las contraseñas no coinciden. ");
-                        window.location.replace("change-user-data.php");
-                        return;
-                    }
-                    //comprobar que el dni cumple con el formato
+            //comprobar que contraseña y repite contraseña coinciden
+            if (password != password2) {
+                alert("Las contraseñas no coinciden. ");
+                window.location.replace("change-user-data.php");
+                return;
+            }
+            //comprobar que el dni cumple con el formato
 
-                    var numero;
-                    var letr;
-                    var letra;
-                    var expresion_regular_dni;
+            var numero;
+            var letr;
+            var letra;
+            var expresion_regular_dni;
 
-                    expresion_regular_dni = /^\d{8}\-+[A-Z]$/;
+            expresion_regular_dni = /^\d{8}\-+[A-Z]$/;
 
-                    if (expresion_regular_dni.test(dni)) {
-                        numero = dni.substr(0, dni.length - 2);
-                        letr = dni.substr(dni.length - 1, 1);
-                        numero = numero % 23;
-                        letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
-                        letra = letra.substring(numero, numero + 1);
-                        if (letra != letr.toUpperCase()) {
-                            alert('Dni erroneo, la letra del NIF no se corresponde');
-                            window.location.replace("change-user-data.php");
-                            return;
-                        }
-                    } else {
-                        alert('Dni erroneo, formato no válido');
-                        window.location.replace("change-user-data.php");
-                        return;
-                    }
-                    //comprobar formato correo
-
-                    var expresion_regular_email = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-                    if (!expresion_regular_email.test(email)) {
-                        alert('Email incorrecto. Siga el formato ejemplo@ejemplo.com');
-                        window.location.replace("change-user-data.php");
-                        return;
-                    }
-
-                    //comprobar telefono
-
-                    var expresion_regular_telefono = /[0-9]{9}/;
-                    if (!expresion_regular_telefono.test(telf)) {
-                        alert('El número de teléfono solo puede contener números y debe ser de 9 dígitos.')
-                        window.location.replace("change-user-data.php");
-                        return;
-                    }
-
-                    document.registro.submit();
+            if (expresion_regular_dni.test(dni)) {
+                numero = dni.substr(0, dni.length - 2);
+                letr = dni.substr(dni.length - 1, 1);
+                numero = numero % 23;
+                letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+                letra = letra.substring(numero, numero + 1);
+                if (letra != letr.toUpperCase()) {
+                    alert('Dni erroneo, la letra del NIF no se corresponde');
+                    window.location.replace("change-user-data.php");
+                    return;
                 }
-            </script>
+            } else {
+                alert('Dni erroneo, formato no válido');
+                window.location.replace("change-user-data.php");
+                return;
+            }
+            //comprobar formato correo
+
+            var expresion_regular_email = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+            if (!expresion_regular_email.test(email)) {
+                alert('Email incorrecto. Siga el formato ejemplo@ejemplo.com');
+                window.location.replace("change-user-data.php");
+                return;
+            }
+
+            //comprobar telefono
+
+            var expresion_regular_telefono = /[0-9]{9}/;
+            if (!expresion_regular_telefono.test(telf)) {
+                alert('El número de teléfono solo puede contener números y debe ser de 9 dígitos.')
+                window.location.replace("change-user-data.php");
+                return;
+            }
+
+            var expresion_regular_banco = /[0-9]{20}/;
+            if (!expresion_regular_banco.test(banco)) {
+                alert('La cuenta bancaria solo puede contener números y debe ser de 20 dígitos.')
+                window.location.replace("change-user-data.php");
+                return;
+            }
+
+            document.registro.submit();
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        function mostrarPassword() {
+            var cambio = document.getElementById("contra1");
+            if (cambio.type == "password") {
+                cambio.type = "text";
+                $('#show_password #mostrar.mai-eye-off').removeClass("mai-eye-off").addClass("mai-eye");
+            } else {
+                cambio.type = "password";
+                $('#show_password #mostrar.mai-eye').removeClass("mai-eye").addClass("mai-eye-off");
+            }
+        }
+        $(document).ready(function() {
+            //CheckBox mostrar contraseña
+            $('#ShowPassword').click(function() {
+                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        function mostrarPassword2() {
+            var cambio = document.getElementById("contra2");
+            if (cambio.type == "password") {
+                cambio.type = "text";
+                $('#show_password2 #mostrar2.mai-eye-off').removeClass("mai-eye-off").addClass("mai-eye");
+            } else {
+                cambio.type = "password";
+                $('#show_password2 #mostrar2.mai-eye').removeClass("mai-eye").addClass("mai-eye-off");
+            }
+        }
+        $(document).ready(function() {
+            //CheckBox mostrar contraseña
+            $('#ShowPassword').click(function() {
+                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
     <div class="page-section pt-5">
         <div class="container">
             <nav aria-label="Breadcrumb">
@@ -154,7 +202,7 @@ session_start();
                     <li class="breadcrumb-item"><a href="datos-usuario.php">Mi perfil</a></li>
 
                 </ul>
-            </nav>          
+            </nav>
             <div class="row">
 
                 <?
@@ -169,12 +217,22 @@ session_start();
                 }
                 $con->select_db($db);
                 $email = $_SESSION['usuario']['Email'];
-                $datos=$con->prepare("SELECT * FROM Usuario WHERE Email= ?");
-                $datos->bind_param("s",$email);
+                $datos = $con->prepare("SELECT * FROM Usuario WHERE Email= ?");
+                $datos->bind_param("s", $email);
                 $datos->execute();
                 $result = $datos->get_result();
                 $row = $result->fetch_assoc();
+                //se descifra la cuenta bancaria
+
+                $ciphering = "AES-128-CTR";
+                $iv_length = openssl_cipher_iv_length($ciphering);
+                $options = 0;
+                $decryption_iv = '1234567891011121';
+                $decryption_key = 'clave';
+                $cuenta_descifrada = openssl_decrypt($row['Banco'],$ciphering,$decryption_key,$options,$decryption_iv);
+
                 ?>
+
                 <div class="comment-form-wrap pt-5">
                     <h2 class="mb-5">Datos de usuario</h2>
                     <form name="registro" action="update-user-data.php" method="post">
@@ -203,10 +261,16 @@ session_start();
                         <div class="form-group">
                             <label for="website">Contraseña</label>
                             <input type="password" id="text" class="form-control" name="contra1" placeholder="Ingrese la nueva contraseña.">
+                            <button id="show_password" class="btn" type="button" onclick="mostrarPassword()"> <span id='mostrar' class="mai-eye-off"></span> </button>
                         </div>
                         <div class="form-group">
                             <label for="website">Repita contraseña</label>
                             <input type="password" id="text" class="form-control" name="contra2" placeholder="Por favor repita la contraseña.">
+                            <button id="show_password2" class="btn" type="button" onclick="mostrarPassword2()"> <span id='mostrar2' class="mai-eye-off"></span> </button>
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Cuenta Bancaria</label>
+                            <input type="text" id="text" class="form-control" name="Banco" value="<?php echo $cuenta_descifrada ?>">
                         </div>
                         <div class="row form-group mt-4">
                             <div class="col-md-12">

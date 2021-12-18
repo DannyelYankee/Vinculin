@@ -2,21 +2,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     var t;
-    window.onload=resetTimer;
-    document.onkeypress=resetTimer;
+    window.onload = resetTimer;
+    document.onkeypress = resetTimer;
     document.onmousemove = resetTimer;
-    function logout(){
+
+    function logout() {
         alert("El sistema se cierra por 1 minuto de inactividad.");
-        location.href='logout.php';
+        location.href = 'logout.php';
     }
-    function resetTimer(){
+
+    function resetTimer() {
         clearTimeout(t);
-        t=setTimeout(logout,60000)
+        t = setTimeout(logout, 60000)
     }
 </script>
-
+-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,14 +66,15 @@
             var dni = document.registro.dni.value;
             var email = document.registro.Email.value;
             var telf = document.registro.Telefono.value;
+            var banco = document.registro.Banco.value;
 
-            if (nombre === "" || fecha === "" || password==="" || password2==="" || dni==="" || email==="" || telf==="") {
+            if (nombre === "" || fecha === "" || password === "" || password2 === "" || dni === "" || email === "" || telf === "") {
                 alert('Hay campos vacíos. Por favor rellene todos los campos.');
                 window.location.replace("signup.php");
                 return;
             }
 
-            
+
             //comprobar que contraseña y repite contraseña coinciden
             if (password != password2) {
                 alert("Las contraseñas no coinciden. ");
@@ -79,15 +82,16 @@
                 return;
             }
             //comprobar formato de la contraseña (?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+            /*
             var expresion_regular_contra = /"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/;
             if (!expresion_regular_contra.test(password)) {
                 alert('Contraseña incorrecta. Tu contraseña debe tener mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.');
                 window.location.replace("signup.php");
                 return;
             }
-
+            */
             //comprobar que el dni cumple con el formato
-            
+
             var numero;
             var letr;
             var letra;
@@ -112,7 +116,7 @@
                 return;
             }
             //comprobar formato correo
-            
+
             var expresion_regular_email = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
             if (!expresion_regular_email.test(email)) {
                 alert('Email incorrecto. Siga el formato ejemplo@ejemplo.com');
@@ -121,7 +125,7 @@
             }
 
             //comprobar telefono
-            
+
             var expresion_regular_telefono = /[0-9]{9}/;
             if (!expresion_regular_telefono.test(telf)) {
                 alert('El número de teléfono solo puede contener números y debe ser de 9 dígitos.')
@@ -129,11 +133,56 @@
                 return;
             }
 
+            //comprobar cuenta bancaria
+
+            var expresion_regular_banco = /[0-9]{20}/;
+            if (!expresion_regular_banco.test(banco)) {
+                alert('La cuenta bancaria solo puede contener números y debe ser de 20 dígitos.')
+                window.location.replace("signup.php");
+                return;
+            }
+            
             document.registro.submit();
         }
     </script>
 
+    <script type="text/javascript">
+        function mostrarPassword() {
+            var cambio = document.getElementById("contra1");
+            if (cambio.type == "password") {
+                cambio.type = "text";
+                $('#show_password #mostrar.mai-eye-off').removeClass("mai-eye-off").addClass("mai-eye");
+            } else {
+                cambio.type = "password";
+                $('#show_password #mostrar.mai-eye').removeClass("mai-eye").addClass("mai-eye-off");
+            }
+        }
+        $(document).ready(function() {
+            //CheckBox mostrar contraseña
+            $('#ShowPassword').click(function() {
+                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
 
+<script type="text/javascript">
+        function mostrarPassword2() {
+            var cambio = document.getElementById("contra2");
+            if (cambio.type == "password") {
+                cambio.type = "text";
+                $('#show_password2 #mostrar2.mai-eye-off').removeClass("mai-eye-off").addClass("mai-eye");
+            } else {
+                cambio.type = "password";
+                $('#show_password2 #mostrar2.mai-eye').removeClass("mai-eye").addClass("mai-eye-off");
+            }
+        }
+        $(document).ready(function() {
+            //CheckBox mostrar contraseña
+            $('#ShowPassword').click(function() {
+                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
 
     <div class="container-fluid mt-4">
         <div class="row">
@@ -155,11 +204,13 @@
                         <div class="col-md-6">
                             <label class="text-black" for="Contraseña">Contraseña</label>
                             <input type="password" id="contra1" name="contra1" class="form-control" required="required">
+                            <button id="show_password" class="btn" type="button" onclick="mostrarPassword()"> <span id='mostrar' class="mai-eye-off"></span> </button>
                             <span id="message"></span>
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="RepiteContraseña">Repite la contraseña</label>
                             <input type="password" id="contra2" name="contra2" class="form-control" required="required">
+                            <button id="show_password2" class="btn" type="button" onclick="mostrarPassword2()"> <span id='mostrar2' class="mai-eye-off"></span> </button>
                         </div>
 
                         <div class="col-md-6">
@@ -175,6 +226,12 @@
                             <label class="text-black" for="Telefono">Télefono</label>
                             <input type="text" pattern="[0-9]{9}" title="Debe ser un número de 9 dígitos" name="Telefono" class="form-control" required="required">
                         </div>
+
+                        <div class="col-md-12">
+                            <label class="text-black" for="Banco">Cuenta Bancaria</label>
+                            <input type="text" pattern="[0-9]{20}" title="Debe ser un número de 20 dígitos" name="Banco" class="form-control" required="required">
+                        </div>
+
                     </div>
                     <p>Creando una cuenta acepta nuestros términos y condiciones <a href="#" style="color:dodgerblue">Términos y condiciones</a>.</p>
                     <div class="row form-group mt-4">
