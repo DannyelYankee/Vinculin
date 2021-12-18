@@ -102,6 +102,14 @@ session_start();
             $datos->execute();
             $result = $datos->get_result();
             $row = $result->fetch_assoc();
+            //Se descifra la cuenta bancaria
+            $ciphering = "AES-128-CTR";
+            $iv_length = openssl_cipher_iv_length($ciphering);
+            $options = 0;
+            $decryption_iv = '1234567891011121';
+            $decryption_key = 'clave';
+
+            $cuenta_descifrada = openssl_decrypt($row['Banco'],$ciphering,$decryption_key,$options,$decryption_iv);
             ?>
 
             <div class="row">
@@ -129,6 +137,10 @@ session_start();
                         <div class="form-group">
                             <label for="website">Fecha de Nacimiento</label>
                             <p> <?php echo $row['FechaNacimiento'] ?> </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Cuenta Bancaria</label>
+                            <p> <?php echo $cuenta_descifrada ?> </p>
                         </div>
 
                         <div class="row form-group mt-4">

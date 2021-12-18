@@ -21,9 +21,18 @@ $DNI= $_POST["dni"];
 $fNacimiento = $_POST["fNacimiento"];
 $Telefono = $_POST["Telefono"];
 
+$cuenta= $_POST["Banco"];
+//ciframos la cuenta bancaria
+$ciphering = "AES-128-CTR";
+$iv_length = openssl_cipher_iv_length($ciphering);
+$options = 0;
+$encryption_iv = '1234567891011121';
+$encryption_key = 'clave';
+$cuenta_cifrada = openssl_encrypt($cuenta,$ciphering,$encryption_key,$options,$encryption_iv);
+
 //$sql = mysqli_query($con,"UPDATE Usuario SET NombreApellidos='$NombreApellidos', Telefono='$Telefono', DNI='$DNI', FechaNacimiento='$fNacimiento' WHERE Email='$currentEmail'");
-$sql= $con->prepare("UPDATE Usuario SET NombreApellidos=?, Telefono=?, DNI=?, FechaNacimiento=? WHERE Email=?");
-$sql->bind_param("sisss",$NombreApellidos,$Telefono,$DNI,$fNacimiento,$currentEmail);
+$sql= $con->prepare("UPDATE Usuario SET NombreApellidos=?, Telefono=?, DNI=?, FechaNacimiento=?, Banco=? WHERE Email=?");
+$sql->bind_param("sissss",$NombreApellidos,$Telefono,$DNI,$fNacimiento,$cuenta_cifrada,$currentEmail);
 $sql->execute();
 if($currentEmail!=$Email){
     //UPDATE Usuario SET Email='$Email' WHERE Email='$currentEmail'
