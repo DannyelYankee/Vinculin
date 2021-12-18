@@ -29,6 +29,10 @@ $row = $result->fetch_assoc();
 $hashed_contraseña = $row['Contraseña'];
 $match_contraseña = password_verify($Contraseña,$hashed_contraseña);
 
+$log = $con->prepare("INSERT INTO Acceso (usuario) VALUES (?)");
+$log->bind_param("s", $Email);
+$log->execute();
+
 while ($match_contraseña) {
     
 
