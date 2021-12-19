@@ -6,16 +6,18 @@ session_start();
 
 <script type="text/javascript">
     var t;
-    window.onload=resetTimer;
-    document.onkeypress=resetTimer;
+    window.onload = resetTimer;
+    document.onkeypress = resetTimer;
     document.onmousemove = resetTimer;
-    function logout(){
+
+    function logout() {
         alert("El sistema se cierra por 1 minuto de inactividad.");
-        location.href='logout.php';
+        location.href = 'logout.php';
     }
-    function resetTimer(){
+
+    function resetTimer() {
         clearTimeout(t);
-        t=setTimeout(logout,60000)
+        t = setTimeout(logout, 60000)
     }
 </script>
 
@@ -110,7 +112,7 @@ session_start();
             $decryption_iv = '1234567891011121';
             $decryption_key = 'clave';
 
-            $cuenta_descifrada = openssl_decrypt($row['Banco'],$ciphering,$decryption_key,$options,$decryption_iv);
+            $cuenta_descifrada = openssl_decrypt($row['Banco'], $ciphering, $decryption_key, $options, $decryption_iv);
             ?>
 
             <div class="row">
@@ -168,12 +170,12 @@ session_start();
                     $result = $datos2->get_result();
 
 
-
+                    $is_empty = true;
                     if ($result) {
 
                         while ($row2 = $result->fetch_array()) {
                             $id2 = $row2["id"];
-
+                            $is_empty = false;
                             echo '<div class="col-lg-10 py-3">
                                 <div class="card w-100">
                                     <div class="card-body">
@@ -186,12 +188,15 @@ session_start();
                             </div>';
                         }
                         $datos2->free_result();
-                    } else {
+                    }
+
+                    if ($is_empty) {
                         echo "No tienes ningún anuncio publicado.\n";
                         echo "\nPublica tu primer empleo haciendo un click.";
                         echo '<div class="row form-group mt-4"><div class="col-md-12"><a class="btn btn-primary ml-lg-2" href="job-form.php" type="button">Publicar empleo</a></div></div>';
                     }
                     ?>
+
                 </div>
             </div>
         </div>
