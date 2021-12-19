@@ -65,14 +65,14 @@
                 return;
             }
             //comprobar formato de la contraseña (?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-            /*
+            
             var expresion_regular_contra = /"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/;
             if (!expresion_regular_contra.test(password)) {
                 alert('Contraseña incorrecta. Tu contraseña debe tener mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.');
                 window.location.replace("signup.php");
                 return;
             }
-            */
+            
             //comprobar que el dni cumple con el formato
 
             var numero;
@@ -129,44 +129,6 @@
         }
     </script>
 
-    <script type="text/javascript">
-        function mostrarPassword() {
-            var cambio = document.getElementById("contra1");
-            if (cambio.type == "password") {
-                cambio.type = "text";
-                $('#show_password #mostrar.mai-eye-off').removeClass("mai-eye-off").addClass("mai-eye");
-            } else {
-                cambio.type = "password";
-                $('#show_password #mostrar.mai-eye').removeClass("mai-eye").addClass("mai-eye-off");
-            }
-        }
-        $(document).ready(function() {
-            //CheckBox mostrar contraseña
-            $('#ShowPassword').click(function() {
-                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-            });
-        });
-    </script>
-
-<script type="text/javascript">
-        function mostrarPassword2() {
-            var cambio = document.getElementById("contra2");
-            if (cambio.type == "password") {
-                cambio.type = "text";
-                $('#show_password2 #mostrar2.mai-eye-off').removeClass("mai-eye-off").addClass("mai-eye");
-            } else {
-                cambio.type = "password";
-                $('#show_password2 #mostrar2.mai-eye').removeClass("mai-eye").addClass("mai-eye-off");
-            }
-        }
-        $(document).ready(function() {
-            //CheckBox mostrar contraseña
-            $('#ShowPassword').click(function() {
-                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-            });
-        });
-    </script>
-
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col-lg-6 mb-5 mb-lg-0">
@@ -187,13 +149,13 @@
                         <div class="col-md-6">
                             <label class="text-black" for="Contraseña">Contraseña</label>
                             <input type="password" id="contra1" name="contra1" class="form-control" required="required">
-                            <button id="show_password" class="btn" type="button" onclick="mostrarPassword()"> <span id='mostrar' class="mai-eye-off"></span> </button>
+                           
                             <span id="message"></span>
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="RepiteContraseña">Repite la contraseña</label>
                             <input type="password" id="contra2" name="contra2" class="form-control" required="required">
-                            <button id="show_password2" class="btn" type="button" onclick="mostrarPassword2()"> <span id='mostrar2' class="mai-eye-off"></span> </button>
+                            
                         </div>
 
                         <div class="col-md-6">

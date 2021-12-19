@@ -6,16 +6,18 @@ session_start();
 
 <script type="text/javascript">
     var t;
-    window.onload=resetTimer;
-    document.onkeypress=resetTimer;
+    window.onload = resetTimer;
+    document.onkeypress = resetTimer;
     document.onmousemove = resetTimer;
-    function logout(){
+
+    function logout() {
         alert("El sistema se cierra por 1 minuto de inactividad.");
-        location.href='logout.php';
+        location.href = 'logout.php';
     }
-    function resetTimer(){
+
+    function resetTimer() {
         clearTimeout(t);
-        t=setTimeout(logout,60000)
+        t = setTimeout(logout, 60000)
     }
 </script>
 
@@ -89,7 +91,7 @@ session_start();
             var telf = document.registro.Telefono.value;
             var banco = document.registro.Banco.value;
 
-            if (nombre === "" || fecha === "" || dni === "" || email === "" || telf === "" || banco === "" ) {
+            if (nombre === "" || fecha === "" || dni === "" || email === "" || telf === "" || banco === "") {
                 alert('Hay campos vacíos. Por favor rellene todos los campos.');
                 window.location.replace("change-user-data.php");
                 return;
@@ -102,6 +104,15 @@ session_start();
                 window.location.replace("change-user-data.php");
                 return;
             }
+            //comprobar formato de la contraseña (?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+
+            var expresion_regular_contra = /"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/;
+            if (!expresion_regular_contra.test(password) && !expresion_regular_contra.test(password2)) {
+                alert('Contraseña incorrecta. Tu contraseña debe tener mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.');
+                window.location.replace("signup.php");
+                return;
+            }
+
             //comprobar que el dni cumple con el formato
 
             var numero;
@@ -157,43 +168,6 @@ session_start();
     </script>
 
 
-    <script type="text/javascript">
-        function mostrarPassword() {
-            var cambio = document.getElementById("contra1");
-            if (cambio.type == "password") {
-                cambio.type = "text";
-                $('#show_password #mostrar.mai-eye-off').removeClass("mai-eye-off").addClass("mai-eye");
-            } else {
-                cambio.type = "password";
-                $('#show_password #mostrar.mai-eye').removeClass("mai-eye").addClass("mai-eye-off");
-            }
-        }
-        $(document).ready(function() {
-            //CheckBox mostrar contraseña
-            $('#ShowPassword').click(function() {
-                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-            });
-        });
-    </script>
-
-    <script type="text/javascript">
-        function mostrarPassword2() {
-            var cambio = document.getElementById("contra2");
-            if (cambio.type == "password") {
-                cambio.type = "text";
-                $('#show_password2 #mostrar2.mai-eye-off').removeClass("mai-eye-off").addClass("mai-eye");
-            } else {
-                cambio.type = "password";
-                $('#show_password2 #mostrar2.mai-eye').removeClass("mai-eye").addClass("mai-eye-off");
-            }
-        }
-        $(document).ready(function() {
-            //CheckBox mostrar contraseña
-            $('#ShowPassword').click(function() {
-                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-            });
-        });
-    </script>
     <div class="page-section pt-5">
         <div class="container">
             <nav aria-label="Breadcrumb">
@@ -229,7 +203,7 @@ session_start();
                 $options = 0;
                 $decryption_iv = '1234567891011121';
                 $decryption_key = 'clave';
-                $cuenta_descifrada = openssl_decrypt($row['Banco'],$ciphering,$decryption_key,$options,$decryption_iv);
+                $cuenta_descifrada = openssl_decrypt($row['Banco'], $ciphering, $decryption_key, $options, $decryption_iv);
 
                 ?>
 
@@ -261,12 +235,12 @@ session_start();
                         <div class="form-group">
                             <label for="website">Contraseña</label>
                             <input type="password" id="text" class="form-control" name="contra1" placeholder="Ingrese la nueva contraseña.">
-                            <button id="show_password" class="btn" type="button" onclick="mostrarPassword()"> <span id='mostrar' class="mai-eye-off"></span> </button>
+
                         </div>
                         <div class="form-group">
                             <label for="website">Repita contraseña</label>
                             <input type="password" id="text" class="form-control" name="contra2" placeholder="Por favor repita la contraseña.">
-                            <button id="show_password2" class="btn" type="button" onclick="mostrarPassword2()"> <span id='mostrar2' class="mai-eye-off"></span> </button>
+
                         </div>
                         <div class="form-group">
                             <label for="website">Cuenta Bancaria</label>
