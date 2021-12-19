@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 19-12-2021 a las 00:02:45
+-- Tiempo de generación: 19-12-2021 a las 18:14:56
 -- Versión del servidor: 10.6.4-MariaDB-1:10.6.4+maria~focal
 -- Versión de PHP: 7.4.20
 
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 -- Base de datos: `database`
 --
 
-CREATE DATABASE IF NOT EXISTS `database` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `database`;
-
 -- --------------------------------------------------------
 
 --
@@ -32,20 +29,25 @@ USE `database`;
 
 CREATE TABLE `Acceso` (
   `id` int(11) NOT NULL,
-  `usuario` varchar(64) NOT NULL,
-  `fecha` datetime DEFAULT current_timestamp()
+  `Usuario` varchar(64) NOT NULL,
+  `fecha` datetime DEFAULT current_timestamp(),
+  `Exito` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `Acceso`
 --
 
-INSERT INTO `Acceso` (`id`, `usuario`, `fecha`) VALUES
-(1, 'intruso@intrusivo.com', '2021-12-18 22:59:20'),
-(2, 'email@falso.com', '2021-12-18 22:59:57'),
-(3, 'martin44@hotmail.es', '2021-12-18 23:01:36'),
-(4, 'angela00@gmail.com', '2021-12-18 23:11:40'),
-(5, 'fchtfct@ijugniafjm.com', '2021-12-18 23:53:15');
+INSERT INTO `Acceso` (`id`, `Usuario`, `fecha`, `Exito`) VALUES
+(1, 'intruso@intrusivo.com', '2021-12-18 22:59:20', 0),
+(2, 'email@falso.com', '2021-12-18 22:59:57', 0),
+(3, 'martin44@hotmail.es', '2021-12-18 23:01:36', 0),
+(4, 'angela00@gmail.com', '2021-12-18 23:11:40', 0),
+(5, 'fchtfct@ijugniafjm.com', '2021-12-18 23:53:15', 0),
+(6, 'nodal@gmail.com', '2021-12-19 18:01:18', 0),
+(7, 'daniel.juape@gmail.com', '2021-12-19 18:01:34', 0),
+(8, 'pepe@ejemplo.com', '2021-12-19 18:09:46', 0),
+(9, 'nodal@gmail.com', '2021-12-19 18:10:01', 1);
 
 -- --------------------------------------------------------
 
@@ -87,22 +89,24 @@ INSERT INTO `Empleo` (`id`, `Email`, `Titulo`, `Empresa`, `Localidad`, `Descripc
 CREATE TABLE `Usuario` (
   `NombreApellidos` varchar(100) NOT NULL,
   `Email` varchar(64) NOT NULL,
-  `Contraseña` varchar(32) NOT NULL,
+  `Contraseña` varchar(100) NOT NULL,
   `DNI` varchar(10) NOT NULL,
   `FechaNacimiento` date NOT NULL,
-  `Telefono` int(15) NOT NULL
+  `Telefono` int(15) NOT NULL,
+  `Banco` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `Usuario`
 --
 
-INSERT INTO `Usuario` (`NombreApellidos`, `Email`, `Contraseña`, `DNI`, `FechaNacimiento`, `Telefono`) VALUES
-('Angela Gonzalez', 'angela00@gmail.com', '7a8d84440683f007c0db1245a8510816', '79051579-G', '1999-01-19', 123456789),
-('Fernando Fernandez', 'fernando38@gmail.com', '56d790ea1cc1ceb5962696595b00f857', '12345678-F', '1994-06-24', 666666666),
-('Martin Martinez', 'martin44@hotmail.es', '46b0e2baffdba29ece4fbf6416d1ce63', '89674523-F', '1999-05-22', 652971234),
-('pepe', 'pepe@ejemplo.com', '926e27eecdbc7a18858b3798ba99bddd', '79177539-Q', '2021-10-05', 123456789),
-('Pepito Grillo', 'pepito22@hotmail.com', 'bdfe443000d24e7141fbca51681d9da8', '10000000-A', '1965-01-01', 100000001);
+INSERT INTO `Usuario` (`NombreApellidos`, `Email`, `Contraseña`, `DNI`, `FechaNacimiento`, `Telefono`, `Banco`) VALUES
+('Angela Gonzalez', 'angela00@gmail.com', '7a8d84440683f007c0db1245a8510816', '79051579-G', '1999-01-19', 123456789, ''),
+('Fernando Fernandez', 'fernando38@gmail.com', '56d790ea1cc1ceb5962696595b00f857', '12345678-F', '1994-06-24', 666666666, ''),
+('Martin Martinez', 'martin44@hotmail.es', '46b0e2baffdba29ece4fbf6416d1ce63', '89674523-F', '1999-05-22', 652971234, ''),
+('Christian Nodal', 'nodal@gmail.com', '$2y$10$Zyu/swuPylRnx8z02K1xWe3j2lLeFCO0Gwtdv0M4Ue8gxMdcL0KS.', '79177539-Q', '2000-10-19', 638097085, 'GrwV0dzGpLUGaRgMCESnpTeLu7c='),
+('pepe', 'pepe@ejemplo.com', '926e27eecdbc7a18858b3798ba99bddd', '79177539-Q', '2021-10-05', 123456789, ''),
+('Pepito Grillo', 'pepito22@hotmail.com', 'bdfe443000d24e7141fbca51681d9da8', '10000000-A', '1965-01-01', 100000001, '');
 
 --
 -- Índices para tablas volcadas
@@ -134,7 +138,7 @@ ALTER TABLE `Usuario`
 -- AUTO_INCREMENT de la tabla `Acceso`
 --
 ALTER TABLE `Acceso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `Empleo`
