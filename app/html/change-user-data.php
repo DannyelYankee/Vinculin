@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('Location: index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,14 +108,14 @@ session_start();
                 return;
             }
             //comprobar formato de la contraseña (?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-
+            
             var expresion_regular_contra = /"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/;
             if (!expresion_regular_contra.test(password) && !expresion_regular_contra.test(password2)) {
                 alert('Contraseña incorrecta. Tu contraseña debe tener mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.');
                 window.location.replace("signup.php");
                 return;
             }
-
+            
             //comprobar que el dni cumple con el formato
 
             var numero;
