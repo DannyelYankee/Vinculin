@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 24-10-2021 a las 12:43:58
+-- Tiempo de generación: 19-12-2021 a las 00:02:45
 -- Versión del servidor: 10.6.4-MariaDB-1:10.6.4+maria~focal
 -- Versión de PHP: 7.4.20
 
@@ -21,13 +21,37 @@ SET time_zone = "+00:00";
 -- Base de datos: `database`
 --
 
+CREATE DATABASE IF NOT EXISTS `database` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `database`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Acceso`
+--
+
+CREATE TABLE `Acceso` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(64) NOT NULL,
+  `fecha` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `Acceso`
+--
+
+INSERT INTO `Acceso` (`id`, `usuario`, `fecha`) VALUES
+(1, 'intruso@intrusivo.com', '2021-12-18 22:59:20'),
+(2, 'email@falso.com', '2021-12-18 22:59:57'),
+(3, 'martin44@hotmail.es', '2021-12-18 23:01:36'),
+(4, 'angela00@gmail.com', '2021-12-18 23:11:40'),
+(5, 'fchtfct@ijugniafjm.com', '2021-12-18 23:53:15');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `Empleo`
 --
-CREATE DATABASE IF NOT EXISTS `database` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `database`;
 
 CREATE TABLE `Empleo` (
   `id` int(11) NOT NULL,
@@ -85,6 +109,12 @@ INSERT INTO `Usuario` (`NombreApellidos`, `Email`, `Contraseña`, `DNI`, `FechaN
 --
 
 --
+-- Indices de la tabla `Acceso`
+--
+ALTER TABLE `Acceso`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `Empleo`
 --
 ALTER TABLE `Empleo`
@@ -99,6 +129,12 @@ ALTER TABLE `Usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `Acceso`
+--
+ALTER TABLE `Acceso`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `Empleo`
