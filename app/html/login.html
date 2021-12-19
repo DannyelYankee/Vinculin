@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<script>
-    window.onload = function() {
-        killerSession();
-    }
-
-    function killerSession() {
-        setTimeout("window.open('logout.php','_top');", 60000);
-    }
-</script>
 
 <head>
     <meta charset="UTF-8">
@@ -47,24 +38,6 @@
 
     </header>
 
-    <script type="text/javascript">
-        function mostrarPassword() {
-            var cambio = document.getElementById("contra");
-            if (cambio.type == "password") {
-                cambio.type = "text";
-                $('#show_password #mostrar.mai-eye-off').removeClass("mai-eye-off").addClass("mai-eye");
-            } else {
-                cambio.type = "password";
-                $('#show_password #mostrar.mai-eye').removeClass("mai-eye").addClass("mai-eye-off");
-            }
-        }
-        $(document).ready(function() {
-            //CheckBox mostrar contraseña
-            $('#ShowPassword').click(function() {
-                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-            });
-        });
-    </script>
     <div class="text-center">
         <div class="text-center">
             <div class="text-center">
@@ -82,7 +55,6 @@
 
                         <div class="mx-auto" style="width: 500px;">
                             <input type="password" name="contra" class="form-control" placeholder="Contraseña" required="required">
-                            <button id="show_password" class="btn" type="button" onclick="mostrarPassword()"> <span id='mostrar' class="mai-eye-off"></span> </button>
                 <a class="nav-link" href="password_forgotten.html">¿Has olvidado tu contraseña?</a>
             </div>
             </div>

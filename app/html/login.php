@@ -29,12 +29,13 @@ $row = $result->fetch_assoc();
 $hashed_contraseña = $row['Contraseña'];
 $match_contraseña = password_verify($Contraseña,$hashed_contraseña);
 
-$log = $con->prepare("INSERT INTO Acceso (usuario) VALUES (?)");
-$log->bind_param("s", $Email);
-$log->execute();
+
 
 while ($match_contraseña) {
-    
+    $exito = 1;
+    $log = $con->prepare("INSERT INTO Acceso (Usuario, Exito) VALUES (?, ?)");
+    $log->bind_param("si", $Email, $exito);
+    $log->execute();    
 
     $_SESSION['usuario']['Email'] = $row['Email'];    
     $_SESSION['usuario']['NombreApellidos'] = $row['NombreApellidos'];
@@ -46,11 +47,14 @@ while ($match_contraseña) {
     mysqli_close($con);
     return;
 }
+$exito = 0;
+$log = $con->prepare("INSERT INTO Acceso (Usuario, Exito) VALUES (?,?)");
+$log->bind_param("si", $Email, $exito);
+$log->execute();    
 echo "<script> alert('Email o contraseña incorrectos.'); </script>";
 echo "<script> window.location.replace('http://localhost:81/login.html'); </script>";
 exit();
 
 //header ("Location: login.html");
 mysqli_close($con)
-
 ?>

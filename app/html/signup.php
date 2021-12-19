@@ -2,23 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!--<script type="text/javascript">
-    var t;
-    window.onload = resetTimer;
-    document.onkeypress = resetTimer;
-    document.onmousemove = resetTimer;
-
-    function logout() {
-        alert("El sistema se cierra por 1 minuto de inactividad.");
-        location.href = 'logout.php';
-    }
-
-    function resetTimer() {
-        clearTimeout(t);
-        t = setTimeout(logout, 60000)
-    }
-</script>
--->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,14 +65,14 @@
                 return;
             }
             //comprobar formato de la contraseña (?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-            
+            /*
             var expresion_regular_contra = /"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/;
             if (!expresion_regular_contra.test(password)) {
                 alert('Contraseña incorrecta. Tu contraseña debe tener mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.');
                 window.location.replace("signup.php");
                 return;
             }
-            
+            */
             //comprobar que el dni cumple con el formato
 
             var numero;

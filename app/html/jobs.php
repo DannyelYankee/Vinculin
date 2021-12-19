@@ -3,6 +3,7 @@ session_start();
 
 if (isset($_SESSION['usuario'])) {
     $out = '<div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Perfil</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><a class="dropdown-item" href="datos-usuario.php" type="button">Mis datos</a><a class="dropdown-item" href="logout.php" type="button">Cerrar sesión</a></div></div>';
+    $script = "<script type='text/javascript'> var t; window.onload = resetTimer; document.onkeypress = resetTimer; document.onmousemove = resetTimer;function logout() { alert('El sistema se cierra por 1 minuto de inactividad.');location.href = 'logout.php';   }    function resetTimer() {        clearTimeout(t);        t = setTimeout(logout, 60000)    }</script>";
 } else {
     $out = '<li class="nav-item"> <a class="btn btn-primary ml-lg-2" href="login.html">Identificarse</a></li><li class="nav-item"><a class="btn btn-primary ml-lg-2" href="signup.php">Registrarse</a></li>';
 }
@@ -10,20 +11,7 @@ if (isset($_SESSION['usuario'])) {
 <!DOCTYPE html>
 <html lang="en">
 
-<script type="text/javascript">
-    var t;
-    window.onload=resetTimer;
-    document.onkeypress=resetTimer;
-    document.onmousemove = resetTimer;
-    function logout(){
-        alert("El sistema se cierra por 1 minuto de inactividad.");
-        location.href='logout.php';
-    }
-    function resetTimer(){
-        clearTimeout(t);
-        t=setTimeout(logout,60000)
-    }
-</script>
+
 
 <head>
     <meta charset="UTF-8">
@@ -43,7 +31,7 @@ if (isset($_SESSION['usuario'])) {
 
     <link rel="stylesheet" href="./assets/css/theme.css">
 </head>
-
+<?php echo $script ?>
 <body>
 
     <!-- Back to top button -->

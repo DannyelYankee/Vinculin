@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 
-<!--<script type="text/javascript">
+<script type="text/javascript">
     var t;
     window.onload=resetTimer;
     document.onkeypress=resetTimer;
@@ -18,7 +18,7 @@ session_start();
         t=setTimeout(logout,60000)
     }
 </script>
--->
+
 
 <head>
     <meta charset="UTF-8">
